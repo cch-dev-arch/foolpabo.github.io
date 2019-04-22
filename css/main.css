@@ -1697,7 +1697,7 @@ pre .javascript .function {
 }
 .sidebar-toggle {
   position: fixed;
-  left: 30px;
+  right: 30px;
   bottom: 45px;
   width: 14px;
   height: 14px;
@@ -1818,7 +1818,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #78a7cc;
+  background: #992999;
 }
 .links-of-blogroll {
   font-size: 13px;
