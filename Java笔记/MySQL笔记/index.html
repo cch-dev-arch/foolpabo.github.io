@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="注解 概念:说明程序 注释:用文字描述程序 定义:注解(Annotation),也叫元数据。代码级别的说明。可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明  作用分类 编写文档:通过代码里标识的元数据生成文档 代码分析:通过代码里标识的元数据对代码进行分析[使用反射] 编译检查:通过代码里标识的元数据让编译器能够实现基本的编译检查[Override]  预定义注解">
+<meta name="description" content="MySQL数据库的概念 数据库,DataBase,简称:DB 什么是数据库? Structured Query Language:结构化查询语言.定义了操作所有关系型数据库的规则。每种数据库操作的方式存在不一样的地方，称为“方言”. 用于存储和管理数据的仓库   数据库的特点: 持久化存储数据。数据库就是一个文件系统 方便存储和管理数据 使用了统一的方式操作数据库–SQL   常见的数据库软件:">
 <meta property="og:type" content="article">
-<meta property="og:title" content="注解">
-<meta property="og:url" content="http://yoursite.com/Java笔记/注解/index.html">
+<meta property="og:title" content="MySQL笔记">
+<meta property="og:url" content="http://yoursite.com/Java笔记/MySQL笔记/index.html">
 <meta property="og:site_name" content="Pabo">
-<meta property="og:description" content="注解 概念:说明程序 注释:用文字描述程序 定义:注解(Annotation),也叫元数据。代码级别的说明。可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明  作用分类 编写文档:通过代码里标识的元数据生成文档 代码分析:通过代码里标识的元数据对代码进行分析[使用反射] 编译检查:通过代码里标识的元数据让编译器能够实现基本的编译检查[Override]  预定义注解">
+<meta property="og:description" content="MySQL数据库的概念 数据库,DataBase,简称:DB 什么是数据库? Structured Query Language:结构化查询语言.定义了操作所有关系型数据库的规则。每种数据库操作的方式存在不一样的地方，称为“方言”. 用于存储和管理数据的仓库   数据库的特点: 持久化存储数据。数据库就是一个文件系统 方便存储和管理数据 使用了统一的方式操作数据库–SQL   常见的数据库软件:">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-22T11:46:38.298Z">
+<meta property="og:updated_time" content="2019-04-22T16:42:49.391Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="注解">
-<meta name="twitter:description" content="注解 概念:说明程序 注释:用文字描述程序 定义:注解(Annotation),也叫元数据。代码级别的说明。可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明  作用分类 编写文档:通过代码里标识的元数据生成文档 代码分析:通过代码里标识的元数据对代码进行分析[使用反射] 编译检查:通过代码里标识的元数据让编译器能够实现基本的编译检查[Override]  预定义注解">
+<meta name="twitter:title" content="MySQL笔记">
+<meta name="twitter:description" content="MySQL数据库的概念 数据库,DataBase,简称:DB 什么是数据库? Structured Query Language:结构化查询语言.定义了操作所有关系型数据库的规则。每种数据库操作的方式存在不一样的地方，称为“方言”. 用于存储和管理数据的仓库   数据库的特点: 持久化存储数据。数据库就是一个文件系统 方便存储和管理数据 使用了统一的方式操作数据库–SQL   常见的数据库软件:">
 
 
 
@@ -119,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/Java笔记/注解/">
+  <link rel="canonical" href="http://yoursite.com/Java笔记/MySQL笔记/">
 
 
 
 
 
-  <title>注解 | Pabo</title>
+  <title>MySQL笔记 | Pabo</title>
   
 
 
@@ -264,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Java笔记/注解/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Java笔记/MySQL笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="pabo">
@@ -281,7 +281,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">注解</h1>
+          <h1 class="post-title" itemprop="name headline">MySQL笔记</h1>
         
 
         <div class="post-meta">
@@ -293,7 +293,7 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-22T11:13:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-22T22:11:52+08:00">
                 2019-04-22
               </time>
             
@@ -353,190 +353,105 @@
       
 
       
-        <h1 id="注解"><a href="#注解" class="headerlink" title="注解"></a>注解</h1><ul>
-<li>概念:说明程序</li>
-<li>注释:用文字描述程序</li>
-<li>定义:注解(Annotation),也叫元数据。代码级别的说明。可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明</li>
+        <h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="数据库的概念"><a href="#数据库的概念" class="headerlink" title="数据库的概念"></a>数据库的概念</h2><ol>
+<li>数据库,DataBase,简称:DB</li>
+<li>什么是数据库?<ul>
+<li>Structured Query Language:结构化查询语言.定义了操作所有关系型数据库的规则。每种数据库操作的方式存在不一样的地方，称为“方言”.</li>
+<li>用于存储和管理数据的仓库</li>
 </ul>
-<h2 id="作用分类"><a href="#作用分类" class="headerlink" title="作用分类"></a>作用分类</h2><ol>
-<li>编写文档:通过代码里标识的元数据生成文档</li>
-<li>代码分析:通过代码里标识的元数据对代码进行分析[使用反射]</li>
-<li>编译检查:通过代码里标识的元数据让编译器能够实现基本的编译检查[Override]</li>
+</li>
+<li>数据库的特点:<ol>
+<li>持久化存储数据。数据库就是一个文件系统</li>
+<li>方便存储和管理数据</li>
+<li>使用了统一的方式操作数据库–SQL</li>
 </ol>
-<h3 id="预定义注解"><a href="#预定义注解" class="headerlink" title="预定义注解"></a>预定义注解</h3><ul>
-<li>jdk中预定义的注解:<ul>
-<li>@Override:检测被该注解标注的方法是否是继承自父类(接口)的</li>
-<li>@Deprecated:该注解标注的内容，标识已过时</li>
-<li>@SuppressWarning:压制警告</li>
+</li>
+<li>常见的数据库软件:<ol>
+<li>Oracle</li>
+<li>MySQL</li>
+<li>SQL Server</li>
+<li>SQLite</li>
+</ol>
+</li>
+</ol>
+<h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><h3 id="SQL通用语法"><a href="#SQL通用语法" class="headerlink" title="SQL通用语法"></a>SQL通用语法</h3><ol>
+<li>SQL语句可以单行或多行书写，以分号结尾</li>
+<li>可使用空格和缩进来增强语句的可读性</li>
+<li>MySQL数据库的SQL语句不区分大小写，关键字建议使用大写</li>
+<li>3种注释<ul>
+<li>单行注释: – 注释内容 或 #注释内容(mysql特有)</li>
+<li>多行注释:/<em>注释</em>/</li>
 </ul>
 </li>
-</ul>
-<h3 id="自定义注解"><a href="#自定义注解" class="headerlink" title="自定义注解"></a>自定义注解</h3><ul>
-<li>格式</li>
-<li><ul>
-<li>元注解:用于描述注解的注解</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li>@Target:描述注解能够作用的位置</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li><blockquote>
-<p>ElementType取值:</p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li><blockquote>
+</ol>
+<h3 id="SQL分类"><a href="#SQL分类" class="headerlink" title="SQL分类"></a>SQL分类</h3><ol>
+<li>DDL(Data Definition Language)数据定义语言:用来定义数据库对象:数据库，表，列等。关键字CREATE,DROP,ALTER等</li>
+<li>DML(Data Manipulation Language)数据操作语言:用来对数据库中的表的数据进行增删改查.关键字:insert,delete,update等</li>
+<li>DQL(Data Query Language)数据查询语言:用来查询数据库中表的记录(数据).关键字；SELECT,WHERE等</li>
+<li>DCL(Data Control Language)数据控制语言:用来定义数据库的访问权限和安全级别，及创建用户.关键字:GRANT,REVOKE等</li>
+</ol>
+<h4 id="DDL-操作数据库、表"><a href="#DDL-操作数据库、表" class="headerlink" title="DDL:操作数据库、表"></a>DDL:操作数据库、表</h4><ol>
+<li><p>操作数据库:CRUD</p>
 <ul>
-<li>TYPE:可以作用于类上</li>
+<li>C(Create):创建</li>
+<li><ul>
+<li>创建数据库:</li>
 </ul>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE db;</span><br><span class="line">create database if not exists 数据库名称;//创建数据库，判断不存在，在创建</span><br><span class="line">CREATE DATABASE if not exists db1 character set gbk;//创建一个db1数据库，字符集为gbk</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-</li>
-</ul>
+<li><p>R(Retrieve):查询</p>
 </li>
 <li><ul>
-<li><ul>
-<li><blockquote>
-<ul>
-<li>METHOD:可以作用于方法上</li>
-</ul>
-</blockquote>
-</li>
+<li>查询所有数据库的名称:<figure class="highlight plain"><figcaption><span>DATABASES;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* * 查询某个数据库的字符集:查看某个数据的创建语句</span><br><span class="line">```SHOW　CREATE DATABASE mysql # use character utf-8</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-</ul>
+<li><p>U(Update):修改</p>
 </li>
 <li><ul>
-<li><ul>
-<li><blockquote>
-<ul>
-<li>FIELD:可以作用于成员变量上</li>
-</ul>
-</blockquote>
-</li>
+<li>修改数据库的字符集:<figure class="highlight plain"><figcaption><span>DATABASE db1 CHARACTER SET UTF8;//不能使用utf-8,会报错，使用utf8```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">* D(Delete):删除</span><br><span class="line">* * 删除数据库:</span><br><span class="line"></span><br><span class="line">```mysql</span><br><span class="line">DROP database 数据库名称;</span><br><span class="line">//判断数据库存在，存在再删除</span><br><span class="line">drop database if exists 数据库名称;</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li>@Retention:描述注解被保留的阶段</li>
-</ul>
+<li><p>使用数据库</p>
 </li>
 </ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//查询当前正在使用的数据库名称</span><br><span class="line">SELECT database();</span><br><span class="line">//使用数据库</span><br><span class="line">use 数据库名称</span><br></pre></td></tr></table></figure>
 </li>
-<li><ul>
-<li><ul>
-<li><ul>
-<li>@Retention(RetentionPolicy.RUNTIME):当前被描述的注解，会保留到lcass字节码，并被jvm读取到</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li>@Documented:描述注解是否被抽取到api文档中</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li>Inherited:描述注解是否被子类继承</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Target</span>:描述注解能够作用的位置</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Retention</span>:描述注解被保留的阶段</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Documented</span>:描述注解是否被抽取到api文档中</span></span><br><span class="line"><span class="comment"> * Inherited:描述注解是否被子类继承</span></span><br><span class="line"><span class="comment"> * /</span></span><br><span class="line"><span class="comment"><span class="doctag">@Target</span>(value=&#123;ElementType.TYPE&#125;)//表示该注解只能作用于class上</span></span><br><span class="line"><span class="comment">public <span class="doctag">@Interface</span> MyAnno&#123;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">&#125;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> 注解名称&#123;</span><br><span class="line">    属性列表</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> myAnno&#123;&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li><ul>
-<li>本质:注解本质上就是一个接口，该接口默认继承Annotation接口</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li><code>public interface MyAnno extends java.lang.annotation.Annotation{}</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li>属性:接口中的抽象方法</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
-<li>要求:</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<blockquote>
+<li><p>操作表</p>
 <ol>
-<li>属性的返回值类型:返回值不能为void</li>
-</ol>
-<ul>
-<li><ul>
-<li>基本数据结构</li>
-</ul>
+<li><p>C(Create):创建</p>
+<ol>
+<li><p>语法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">CREATE table 表名(</span><br><span class="line">    列名1 数据类型1,</span><br><span class="line">    列名2 数据类型2，</span><br><span class="line">    ...</span><br><span class="line">    列名n 数据类型n</span><br><span class="line">);//注意，最后一列，不需要加逗号(,)</span><br><span class="line">//创建表</span><br><span class="line">create table student(</span><br><span class="line">    id int,</span><br><span class="line">    name varchar(20),</span><br><span class="line">    age int,</span><br><span class="line">    score double(4,1),</span><br><span class="line">    birthday date,</span><br><span class="line">    insert_time timestamp</span><br><span class="line">);</span><br><span class="line">//复制表</span><br><span class="line">create table 表名 like 被复制的表名;</span><br></pre></td></tr></table></figure>
 </li>
-<li><ul>
-<li>String</li>
-</ul>
+<li><p>数据类型:</p>
+<ol>
+<li><p>int:整数类型,<figure class="highlight plain"><figcaption><span>int,```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2. double:小数类型:```score double(5,2);//一共有5位，小数点后面保留两位小数，最大值999.99</span><br></pre></td></tr></table></figure></p>
 </li>
-<li><ul>
-<li>枚举</li>
-</ul>
+<li><p>date:日期，只包含年月日yyyy-MM-dd</p>
 </li>
-<li><ul>
-<li>注解</li>
-</ul>
-</li>
-<li><ul>
-<li>以上类型的数组</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<ol start="2">
-<li>定义了属性，在使用时需要给属性赋值</li>
-</ol>
-<ul>
-<li><ol>
-<li>如果定义属性时,使用default关键字给属性默认初始化值，则使用注解时，可以不进行属性的赋值</li>
+<li>datetime:日期，包含年月日时分秒 yyyy-MM-dd HH:mm:ss</li>
+<li>timestamp:时间戳,包含年月日时分秒 yyyy-MM-dd HH:mm:ss.<strong>如果将来不给这个字段赋值，或赋值为null,则默认使用当前的系统时间，来自动赋值</strong></li>
+<li>varchar:字符串,<figure class="highlight plain"><figcaption><span>varchar(20)//姓名，最大20个字符</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2. R(Rwtrieve)查询:</span><br><span class="line"></span><br><span class="line">```mysql</span><br><span class="line">show tables;//查询某个数据库中所有的表名称</span><br><span class="line">desc 表名;//查询表结构</span><br></pre></td></tr></table></figure></li>
 </ol>
 </li>
-<li><ol start="2">
-<li>如果只有一个属性需要赋值，并且属性的名称是value,则value可以省略，直接定义值即可</li>
 </ol>
 </li>
-<li><ol start="3">
-<li>数组赋值时，值使用{}包裹。如果数组中只有一个值,则{}可以省略</li>
+<li><p>U(Update)修改</p>
+<ol>
+<li>修改表名:ALTER TABLE 表名 rename to 新表名</li>
+<li>修改表的字符集:ALTER TABLE 表名 character set 字符集名称</li>
+<li>添加一列:ALTER TABLE 表名 add 列名 数据类型</li>
+<li>修改列名称 类型:ALTER TABLE 表名 change 列名 [新列名] [新数据类型];</li>
+<li>删除列:ALTER TABLE DROP 列名;</li>
 </ol>
 </li>
+<li>D(Delete)删除<ul>
+<li>drop table if exists 表名;</li>
 </ul>
-</blockquote>
-<ul>
-<li>在程序中使用(解析)注解</li>
-</ul>
+</li>
+</ol>
+</li>
+</ol>
 
       
     </div>
@@ -561,8 +476,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/数据结构/队列/" rel="next" title="队列">
-                <i class="fa fa-chevron-left"></i> 队列
+              <a href="/Java笔记/注解/" rel="next" title="注解">
+                <i class="fa fa-chevron-left"></i> 注解
               </a>
             
           </div>
@@ -570,10 +485,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/Java笔记/MySQL笔记/" rel="prev" title="MySQL笔记">
-                MySQL笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -696,7 +607,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#注解"><span class="nav-number">1.</span> <span class="nav-text">注解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#作用分类"><span class="nav-number">1.1.</span> <span class="nav-text">作用分类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#预定义注解"><span class="nav-number">1.1.1.</span> <span class="nav-text">预定义注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义注解"><span class="nav-number">1.1.2.</span> <span class="nav-text">自定义注解</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL"><span class="nav-number">1.</span> <span class="nav-text">MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库的概念"><span class="nav-number">1.1.</span> <span class="nav-text">数据库的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL"><span class="nav-number">1.2.</span> <span class="nav-text">SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL通用语法"><span class="nav-number">1.2.1.</span> <span class="nav-text">SQL通用语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL分类"><span class="nav-number">1.2.2.</span> <span class="nav-text">SQL分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DDL-操作数据库、表"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">DDL:操作数据库、表</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>

@@ -261,6 +261,246 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Java笔记/MySQL笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pabo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pabo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/Java笔记/MySQL笔记/" itemprop="url">MySQL笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-22T22:11:52+08:00">
+                2019-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java笔记/" itemprop="url" rel="index">
+                    <span itemprop="name">Java笔记</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h1><h2 id="数据库的概念"><a href="#数据库的概念" class="headerlink" title="数据库的概念"></a>数据库的概念</h2><ol>
+<li>数据库,DataBase,简称:DB</li>
+<li>什么是数据库?<ul>
+<li>Structured Query Language:结构化查询语言.定义了操作所有关系型数据库的规则。每种数据库操作的方式存在不一样的地方，称为“方言”.</li>
+<li>用于存储和管理数据的仓库</li>
+</ul>
+</li>
+<li>数据库的特点:<ol>
+<li>持久化存储数据。数据库就是一个文件系统</li>
+<li>方便存储和管理数据</li>
+<li>使用了统一的方式操作数据库–SQL</li>
+</ol>
+</li>
+<li>常见的数据库软件:<ol>
+<li>Oracle</li>
+<li>MySQL</li>
+<li>SQL Server</li>
+<li>SQLite</li>
+</ol>
+</li>
+</ol>
+<h2 id="SQL"><a href="#SQL" class="headerlink" title="SQL"></a>SQL</h2><h3 id="SQL通用语法"><a href="#SQL通用语法" class="headerlink" title="SQL通用语法"></a>SQL通用语法</h3><ol>
+<li>SQL语句可以单行或多行书写，以分号结尾</li>
+<li>可使用空格和缩进来增强语句的可读性</li>
+<li>MySQL数据库的SQL语句不区分大小写，关键字建议使用大写</li>
+<li>3种注释<ul>
+<li>单行注释: – 注释内容 或 #注释内容(mysql特有)</li>
+<li>多行注释:/<em>注释</em>/</li>
+</ul>
+</li>
+</ol>
+<h3 id="SQL分类"><a href="#SQL分类" class="headerlink" title="SQL分类"></a>SQL分类</h3><ol>
+<li>DDL(Data Definition Language)数据定义语言:用来定义数据库对象:数据库，表，列等。关键字CREATE,DROP,ALTER等</li>
+<li>DML(Data Manipulation Language)数据操作语言:用来对数据库中的表的数据进行增删改查.关键字:insert,delete,update等</li>
+<li>DQL(Data Query Language)数据查询语言:用来查询数据库中表的记录(数据).关键字；SELECT,WHERE等</li>
+<li>DCL(Data Control Language)数据控制语言:用来定义数据库的访问权限和安全级别，及创建用户.关键字:GRANT,REVOKE等</li>
+</ol>
+<h4 id="DDL-操作数据库、表"><a href="#DDL-操作数据库、表" class="headerlink" title="DDL:操作数据库、表"></a>DDL:操作数据库、表</h4><ol>
+<li><p>操作数据库:CRUD</p>
+<ul>
+<li>C(Create):创建</li>
+<li><ul>
+<li>创建数据库:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">CREATE DATABASE db;</span><br><span class="line">create database if not exists 数据库名称;//创建数据库，判断不存在，在创建</span><br><span class="line">CREATE DATABASE if not exists db1 character set gbk;//创建一个db1数据库，字符集为gbk</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>R(Retrieve):查询</p>
+</li>
+<li><ul>
+<li>查询所有数据库的名称:<figure class="highlight plain"><figcaption><span>DATABASES;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">* * 查询某个数据库的字符集:查看某个数据的创建语句</span><br><span class="line">```SHOW　CREATE DATABASE mysql # use character utf-8</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>U(Update):修改</p>
+</li>
+<li><ul>
+<li>修改数据库的字符集:<figure class="highlight plain"><figcaption><span>DATABASE db1 CHARACTER SET UTF8;//不能使用utf-8,会报错，使用utf8```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">* D(Delete):删除</span><br><span class="line">* * 删除数据库:</span><br><span class="line"></span><br><span class="line">```mysql</span><br><span class="line">DROP database 数据库名称;</span><br><span class="line">//判断数据库存在，存在再删除</span><br><span class="line">drop database if exists 数据库名称;</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>使用数据库</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//查询当前正在使用的数据库名称</span><br><span class="line">SELECT database();</span><br><span class="line">//使用数据库</span><br><span class="line">use 数据库名称</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>操作表</p>
+<ol>
+<li><p>C(Create):创建</p>
+<ol>
+<li><p>语法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">CREATE table 表名(</span><br><span class="line">    列名1 数据类型1,</span><br><span class="line">    列名2 数据类型2，</span><br><span class="line">    ...</span><br><span class="line">    列名n 数据类型n</span><br><span class="line">);//注意，最后一列，不需要加逗号(,)</span><br><span class="line">//创建表</span><br><span class="line">create table student(</span><br><span class="line">    id int,</span><br><span class="line">    name varchar(20),</span><br><span class="line">    age int,</span><br><span class="line">    score double(4,1),</span><br><span class="line">    birthday date,</span><br><span class="line">    insert_time timestamp</span><br><span class="line">);</span><br><span class="line">//复制表</span><br><span class="line">create table 表名 like 被复制的表名;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>数据类型:</p>
+<ol>
+<li><p>int:整数类型,<figure class="highlight plain"><figcaption><span>int,```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2. double:小数类型:```score double(5,2);//一共有5位，小数点后面保留两位小数，最大值999.99</span><br></pre></td></tr></table></figure></p>
+</li>
+<li><p>date:日期，只包含年月日yyyy-MM-dd</p>
+</li>
+<li>datetime:日期，包含年月日时分秒 yyyy-MM-dd HH:mm:ss</li>
+<li>timestamp:时间戳,包含年月日时分秒 yyyy-MM-dd HH:mm:ss.<strong>如果将来不给这个字段赋值，或赋值为null,则默认使用当前的系统时间，来自动赋值</strong></li>
+<li>varchar:字符串,<figure class="highlight plain"><figcaption><span>varchar(20)//姓名，最大20个字符</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2. R(Rwtrieve)查询:</span><br><span class="line"></span><br><span class="line">```mysql</span><br><span class="line">show tables;//查询某个数据库中所有的表名称</span><br><span class="line">desc 表名;//查询表结构</span><br></pre></td></tr></table></figure></li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>U(Update)修改</p>
+<ol>
+<li>修改表名:ALTER TABLE 表名 rename to 新表名</li>
+<li>修改表的字符集:ALTER TABLE 表名 character set 字符集名称</li>
+<li>添加一列:ALTER TABLE 表名 add 列名 数据类型</li>
+<li>修改列名称 类型:ALTER TABLE 表名 change 列名 [新列名] [新数据类型];</li>
+<li>删除列:ALTER TABLE DROP 列名;</li>
+</ol>
+</li>
+<li>D(Delete)删除<ul>
+<li>drop table if exists 表名;</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/Java笔记/注解/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -538,6 +778,202 @@
 <ul>
 <li>在程序中使用(解析)注解</li>
 </ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/数据结构/队列/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pabo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pabo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/数据结构/队列/" itemprop="url">队列</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-22T10:27:49+08:00">
+                2019-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h1><blockquote>
+<ul>
+<li>队列(Queue):具有一定操作约束的线性表</li>
+<li><ul>
+<li>插入和删除操作:只能在<strong>一端插入</strong>，而在<strong>另一端删除</strong> —– <strong>堆栈</strong>的插入和删除是在<strong>同一端</strong></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>数据插入:入队列(AddQ)</li>
+<li>数据删除:出队列(DeleteQ)<br></li>
+<li>先来先服务<br></li>
+<li>先进先出:FIFO</li>
+</ul>
+</blockquote>
+<h2 id="队列的抽象数据类型描述"><a href="#队列的抽象数据类型描述" class="headerlink" title="队列的抽象数据类型描述"></a>队列的抽象数据类型描述</h2><blockquote>
+<ul>
+<li>类型名称:队列(Queue)</li>
+<li>数据对象集:一个有0个或多个元素的有穷线性表</li>
+<li>操作集:长度为MaxSize的队列Q,队列元素item</li>
+</ul>
+</blockquote>
+<p>“<code>C++
+Queue CreateQueue(int MaxSize);//生成长度为MaxSize的空队列
+int IsFullQ(Queue Q,int MaxSize);//判断队列Q是否已满
+void AddQ(Queue Q,ElementType item);//将数据元素item插入队列Q中
+int IsEmptyQ(Queue Q);//判断队列Q是否为空
+ElementType DeleteQ(Queue Q);//将队头数据元素从队列中删除并返回
+“</code></p>
+<h2 id="队列的顺序存储实现"><a href="#队列的顺序存储实现" class="headerlink" title="队列的顺序存储实现"></a>队列的顺序存储实现</h2><blockquote>
+<p>通常由一个<strong>一维数组</strong>和一个记录队列头元素位置的变量<code>front</code>以及一个记录队列尾元素位置的变量<code>rear</code>组成</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxSize <span class="meta-string">&lt;存储数据元素的最大个数&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">QNode</span>&#123;</span></span><br><span class="line">    ElementType Data[MaxSize];</span><br><span class="line">    <span class="keyword">int</span> rear;</span><br><span class="line">    <span class="keyword">int</span> front;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">QNode</span> *<span class="title">Queue</span>;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>使用顺序存储形成的队列为顺环队列，这种情况容易出现无法判断队列空满<br>解决方案为:</p>
+<ul>
+<li>使用额外标记:Size或者tag域</li>
+<li>仅使用n-1个数组空间</li>
+</ul>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.入队列</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AddQ</span><span class="params">(Queue Q,ElementType item)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>((Q-&gt;rear+<span class="number">1</span>)%MaxSize==Q-&gt;front)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"队列满"</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Q-&gt;rear=(Q-&gt;rear+<span class="number">1</span>)%MaxSize;</span><br><span class="line">    Q-&gt;Data[Q-&gt;rear]=item;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2.出队列</span></span><br><span class="line"><span class="function">ElementType <span class="title">DeleteQ</span><span class="params">(Queue PtrQ)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(PtrQ-&gt;front==PtrQ-&gt;rear)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"队列空"</span>);</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        PtrQ-&gt;front=(PtrQ-&gt;front+<span class="number">1</span>)%MaxSize;</span><br><span class="line">        <span class="keyword">return</span> PtrQ-&gt;Data[PtrQ-&gt;front];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="队列的链式存储实现"><a href="#队列的链式存储实现" class="headerlink" title="队列的链式存储实现"></a>队列的链式存储实现</h2><blockquote>
+<p>队列的链式存储结构也可以用一个<strong>单链表</strong>实现。插入和删除操作分别在链表的两头进行;</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">    ElementType Data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">Next</span>;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">QNode</span>&#123;</span><span class="comment">//链队列结构</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">rear</span>;</span><span class="comment">//指向队尾节点</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">front</span>;</span><span class="comment">//指向队头节点</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">QNode</span> *<span class="title">Queue</span>;</span></span><br><span class="line">Queue PtrQ;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不带头节点的链式队列出队操作</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ElementType <span class="title">DeleteQ</span><span class="params">(Queue PtrQ)</span></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">FrontCell</span>;</span></span><br><span class="line">    ElementType FrontElem;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(PtrQ-&gt;front==<span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"队列空"</span>);</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;</span><br><span class="line">    FrontCell = PtrQ-&gt;front;</span><br><span class="line">    <span class="keyword">if</span>(PtrQ-&gt;front==PtrQ-&gt;rear)&#123;<span class="comment">//若队列只有一个元素</span></span><br><span class="line">        PtrQ-&gt;front=PtrQ-&gt;rear=<span class="literal">NULL</span>;<span class="comment">//删除后队列置为空</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        PtrQ-&gt;front=PtrQ-&gt;front-&gt;Next;</span><br><span class="line">    &#125;</span><br><span class="line">    FrontItem=FrontCell-&gt;Data;</span><br><span class="line">    <span class="built_in">free</span>(FrontCell);<span class="comment">//释放被删除节点的空间</span></span><br><span class="line">    <span class="keyword">return</span> FrontItem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不带头节点的链式队列入队操作</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AddQ</span><span class="params">(Queue PtrQ,ElementType item)</span></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">rearCell</span>;</span></span><br><span class="line">    rearCell-&gt;Next=<span class="literal">NULL</span>;</span><br><span class="line">    rearCell-&gt;Data=item;</span><br><span class="line">    <span class="comment">//如果队列为空</span></span><br><span class="line">    <span class="keyword">if</span>(PtrQ-&gt;rear==<span class="literal">NULL</span>)&#123;</span><br><span class="line">        PtrQ-&gt;rear=rearCell;</span><br><span class="line">    &#125;</span><br><span class="line">    PtrQ-&gt;rear-&gt;Next=rearCell;</span><br><span class="line">    PtrQ-&gt;rear=PtrQ-&gt;rear-&gt;Next;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
           
         
@@ -1064,202 +1500,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/数据结构/队列/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pabo">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pabo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/数据结构/队列/" itemprop="url">队列</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-22T10:27:49+08:00">
-                2019-04-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h1><blockquote>
-<ul>
-<li>队列(Queue):具有一定操作约束的线性表</li>
-<li><ul>
-<li>插入和删除操作:只能在<strong>一端插入</strong>，而在<strong>另一端删除</strong> —– <strong>堆栈</strong>的插入和删除是在<strong>同一端</strong></li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>数据插入:入队列(AddQ)</li>
-<li>数据删除:出队列(DeleteQ)<br></li>
-<li>先来先服务<br></li>
-<li>先进先出:FIFO</li>
-</ul>
-</blockquote>
-<h2 id="队列的抽象数据类型描述"><a href="#队列的抽象数据类型描述" class="headerlink" title="队列的抽象数据类型描述"></a>队列的抽象数据类型描述</h2><blockquote>
-<ul>
-<li>类型名称:队列(Queue)</li>
-<li>数据对象集:一个有0个或多个元素的有穷线性表</li>
-<li>操作集:长度为MaxSize的队列Q,队列元素item</li>
-</ul>
-</blockquote>
-<p>“<code>C++
-Queue CreateQueue(int MaxSize);//生成长度为MaxSize的空队列
-int IsFullQ(Queue Q,int MaxSize);//判断队列Q是否已满
-void AddQ(Queue Q,ElementType item);//将数据元素item插入队列Q中
-int IsEmptyQ(Queue Q);//判断队列Q是否为空
-ElementType DeleteQ(Queue Q);//将队头数据元素从队列中删除并返回
-“</code></p>
-<h2 id="队列的顺序存储实现"><a href="#队列的顺序存储实现" class="headerlink" title="队列的顺序存储实现"></a>队列的顺序存储实现</h2><blockquote>
-<p>通常由一个<strong>一维数组</strong>和一个记录队列头元素位置的变量<code>front</code>以及一个记录队列尾元素位置的变量<code>rear</code>组成</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxSize <span class="meta-string">&lt;存储数据元素的最大个数&gt;</span></span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">QNode</span>&#123;</span></span><br><span class="line">    ElementType Data[MaxSize];</span><br><span class="line">    <span class="keyword">int</span> rear;</span><br><span class="line">    <span class="keyword">int</span> front;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">QNode</span> *<span class="title">Queue</span>;</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>使用顺序存储形成的队列为顺环队列，这种情况容易出现无法判断队列空满<br>解决方案为:</p>
-<ul>
-<li>使用额外标记:Size或者tag域</li>
-<li>仅使用n-1个数组空间</li>
-</ul>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.入队列</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AddQ</span><span class="params">(Queue Q,ElementType item)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>((Q-&gt;rear+<span class="number">1</span>)%MaxSize==Q-&gt;front)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"队列满"</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Q-&gt;rear=(Q-&gt;rear+<span class="number">1</span>)%MaxSize;</span><br><span class="line">    Q-&gt;Data[Q-&gt;rear]=item;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2.出队列</span></span><br><span class="line"><span class="function">ElementType <span class="title">DeleteQ</span><span class="params">(Queue PtrQ)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(PtrQ-&gt;front==PtrQ-&gt;rear)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"队列空"</span>);</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        PtrQ-&gt;front=(PtrQ-&gt;front+<span class="number">1</span>)%MaxSize;</span><br><span class="line">        <span class="keyword">return</span> PtrQ-&gt;Data[PtrQ-&gt;front];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="队列的链式存储实现"><a href="#队列的链式存储实现" class="headerlink" title="队列的链式存储实现"></a>队列的链式存储实现</h2><blockquote>
-<p>队列的链式存储结构也可以用一个<strong>单链表</strong>实现。插入和删除操作分别在链表的两头进行;</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line">    ElementType Data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">Next</span>;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">QNode</span>&#123;</span><span class="comment">//链队列结构</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">rear</span>;</span><span class="comment">//指向队尾节点</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">front</span>;</span><span class="comment">//指向队头节点</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">QNode</span> *<span class="title">Queue</span>;</span></span><br><span class="line">Queue PtrQ;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>不带头节点的链式队列出队操作</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">ElementType <span class="title">DeleteQ</span><span class="params">(Queue PtrQ)</span></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">FrontCell</span>;</span></span><br><span class="line">    ElementType FrontElem;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span>(PtrQ-&gt;front==<span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"队列空"</span>);</span><br><span class="line">        <span class="keyword">return</span> ERROR;</span><br><span class="line">    &#125;</span><br><span class="line">    FrontCell = PtrQ-&gt;front;</span><br><span class="line">    <span class="keyword">if</span>(PtrQ-&gt;front==PtrQ-&gt;rear)&#123;<span class="comment">//若队列只有一个元素</span></span><br><span class="line">        PtrQ-&gt;front=PtrQ-&gt;rear=<span class="literal">NULL</span>;<span class="comment">//删除后队列置为空</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        PtrQ-&gt;front=PtrQ-&gt;front-&gt;Next;</span><br><span class="line">    &#125;</span><br><span class="line">    FrontItem=FrontCell-&gt;Data;</span><br><span class="line">    <span class="built_in">free</span>(FrontCell);<span class="comment">//释放被删除节点的空间</span></span><br><span class="line">    <span class="keyword">return</span> FrontItem;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>不带头节点的链式队列入队操作</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AddQ</span><span class="params">(Queue PtrQ,ElementType item)</span></span>&#123;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Node</span> *<span class="title">rearCell</span>;</span></span><br><span class="line">    rearCell-&gt;Next=<span class="literal">NULL</span>;</span><br><span class="line">    rearCell-&gt;Data=item;</span><br><span class="line">    <span class="comment">//如果队列为空</span></span><br><span class="line">    <span class="keyword">if</span>(PtrQ-&gt;rear==<span class="literal">NULL</span>)&#123;</span><br><span class="line">        PtrQ-&gt;rear=rearCell;</span><br><span class="line">    &#125;</span><br><span class="line">    PtrQ-&gt;rear-&gt;Next=rearCell;</span><br><span class="line">    PtrQ-&gt;rear=PtrQ-&gt;rear-&gt;Next;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1306,7 +1546,7 @@ ElementType DeleteQ(Queue Q);//将队头数据元素从队列中删除并返回
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
