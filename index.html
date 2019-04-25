@@ -407,12 +407,12 @@
 </ul>
 </li>
 <li><ul>
-<li>查询某个数据库的字符集:查看某个数据的创建语句 SHOW　CREATE DATABASE mysql # use character utf-8</li>
+<li>查询某个数据库的字符集:查看某个数据的创建语句 <code>SHOW　CREATE DATABASE mysql # use character utf-8</code></li>
 </ul>
 </li>
 <li>U(Update):修改</li>
 <li><ul>
-<li>修改数据库的字符集:ALTER DATABASE db1 CHARACTER SET UTF8;//不能使用utf-8,会报错，使用utf8</li>
+<li>修改数据库的字符集:<code>ALTER DATABASE db1 CHARACTER SET UTF8;//不能使用utf-8,会报错，使用utf8</code></li>
 </ul>
 </li>
 <li>D(Delete):删除</li>
@@ -441,22 +441,25 @@
 <li>date:日期，只包含年月日yyyy-MM-dd</li>
 <li>datetime:日期，包含年月日时分秒 yyyy-MM-dd HH:mm:ss</li>
 <li>timestamp:时间戳,包含年月日时分秒 yyyy-MM-dd HH:mm:ss.<strong>如果将来不给这个字段赋值，或赋值为null,则默认使用当前的系统时间，来自动赋值</strong></li>
-<li>varchar:字符串,<figure class="highlight plain"><figcaption><span>varchar(20)//姓名，最大20个字符</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2. R(Rwtrieve)查询:</span><br><span class="line"></span><br><span class="line">```mysql</span><br><span class="line">show tables;//查询某个数据库中所有的表名称</span><br><span class="line">desc 表名;//查询表结构</span><br></pre></td></tr></table></figure></li>
+<li>varchar:字符串,<code>name varchar(20)//姓名，最大20个字符</code></li>
 </ol>
 </li>
 </ol>
+</li>
+<li><p>R(Rwtrieve)查询:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show tables;//查询某个数据库中所有的表名称</span><br><span class="line">desc 表名;//查询表结构</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>U(Update)修改</p>
 <ol>
-<li>修改表名:ALTER TABLE 表名 rename to 新表名</li>
-<li>修改表的字符集:ALTER TABLE 表名 character set 字符集名称</li>
-<li>添加一列:ALTER TABLE 表名 add 列名 数据类型</li>
-<li>修改列名称 类型:ALTER TABLE 表名 change 列名 [新列名] [新数据类型];</li>
-<li>删除列:ALTER TABLE DROP 列名;</li>
+<li>修改表名:<code>ALTER TABLE 表名 rename to 新表名</code></li>
+<li>修改表的字符集:<code>ALTER TABLE 表名 character set 字符集名称</code></li>
+<li>添加一列:<code>ALTER TABLE 表名 add 列名 数据类型</code></li>
+<li>修改列名称 类型:<code>ALTER TABLE 表名 change 列名 [新列名] [新数据类型];</code></li>
+<li>删除列:<code>ALTER TABLE DROP 列名;</code></li>
 </ol>
 </li>
 <li>D(Delete)删除<ul>
-<li>drop table if exists 表名;</li>
+<li><code>drop table if exists 表名;</code></li>
 </ul>
 </li>
 </ol>
@@ -464,7 +467,7 @@
 </ol>
 <h3 id="DML-增删改表中数据"><a href="#DML-增删改表中数据" class="headerlink" title="DML:增删改表中数据"></a>DML:增删改表中数据</h3><ol>
 <li>添加数据:<ul>
-<li>语法:insert into 表名(列名1,列名2,…,列名n) values(值1,值2,…,值n);</li>
+<li>语法:<code>insert into 表名(列名1,列名2,...,列名n) values(值1,值2,...,值n);</code></li>
 <li>注意:<ul>
 <li>列名和值要一一对应</li>
 <li>如果表名后，不定义列名，则默认给所有列添加值:insert into 表名 values(值1,值2,…,值n);</li>
@@ -476,12 +479,8 @@
 <li>删除数据:<ul>
 <li>语法:<ul>
 <li>delete from 表名 [where 条件]</li>
-<li>注意:</li>
-<li><ol>
+<li>注意:<ol>
 <li>如果不加条件，会删除表中所有记录</li>
-</ol>
-</li>
-<li><ol start="2">
 <li>如果要删除所有记录<ol>
 <li>delete from 表名;–不推荐使用。有多少条记录就会执行多少次删除操作，影响性能</li>
 <li>TRUNCATE TABLE 表名;–推荐使用.先删除表，然后再创建一张一样的表</li>
@@ -494,7 +493,7 @@
 </ul>
 </li>
 <li>修改数据:<ul>
-<li>语法: update 表名 set 列名1 = 值1,列名2 = 值2,…[where 条件];</li>
+<li>语法: <code>update 表名 set 列名1 = 值1,列名2 = 值2,...[where 条件];</code></li>
 </ul>
 </li>
 </ol>
@@ -570,7 +569,7 @@
 <li>聚合函数:将一列数据作为一个整体，进行纵向的计算<ol>
 <li>count:计算个数<ul>
 <li>SELECT COUNT(列名) FROM 表名;</li>
-<li>SELECT COUNT(IFNULL(english,0)) FROM stu;</li>
+<li><code>SELECT COUNT(IFNULL(english,0)) FROM stu;</code></li>
 </ul>
 </li>
 <li>max:计算最大值</li>
@@ -608,12 +607,27 @@
 </ol>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//每页显示3条记录</span><br><span class="line">SELECT * FROM student LIMIT 0,3;//第1页</span><br><span class="line">SELECT * FROM student LIMIT 3,3;//第2页</span><br><span class="line">SELECT * FROM student LIMIT 6,3;//第3页</span><br><span class="line">```   </span><br><span class="line">   </span><br><span class="line">   3. 分页操作是一个&quot;方言&quot;，每种数据库的分页的语法都不同，limit是mysql的语法</span><br><span class="line"></span><br><span class="line">## 约束</span><br><span class="line"></span><br><span class="line">* 概念:对表中的数据进行限定,保证数据的正确性、有效性和完整性</span><br><span class="line">* 分类:</span><br><span class="line">  * 主键约束:primary key</span><br><span class="line">  * 非空约束:not null</span><br><span class="line">  * 唯一约束:unique</span><br><span class="line">  * 外键约束: foreign key</span><br><span class="line">* 非空约束:not null</span><br><span class="line">  * 创建表时添加约束:CREATE TABLE stu(name varchar(20) not null);</span><br><span class="line">  * 创建表后,添加非空约束:ALTER TABLE stu MODIFY name varchar(20) not null;</span><br><span class="line">  * 删除name的非空约束:```ALTER TABLE stu MODIFY name varchar(20);</span><br></pre></td></tr></table></figure>
-<ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//每页显示3条记录</span><br><span class="line">SELECT * FROM student LIMIT 0,3;//第1页</span><br><span class="line">SELECT * FROM student LIMIT 3,3;//第2页</span><br><span class="line">SELECT * FROM student LIMIT 6,3;//第3页</span><br></pre></td></tr></table></figure>
+<pre><code>3. 分页操作是一个&quot;方言&quot;，每种数据库的分页的语法都不同，limit是mysql的语法
+</code></pre><h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><ul>
+<li>概念:对表中的数据进行限定,保证数据的正确性、有效性和完整性</li>
+<li>分类:<ul>
+<li>主键约束:primary key</li>
+<li>非空约束:not null</li>
+<li>唯一约束:unique</li>
+<li>外键约束: foreign key</li>
+</ul>
+</li>
+<li>非空约束:not null<ul>
+<li>创建表时添加约束:<code>CREATE TABLE stu(name varchar(20) not null);</code></li>
+<li>创建表后,添加非空约束:<code>ALTER TABLE stu MODIFY name varchar(20) not null;</code></li>
+<li>删除name的非空约束:<code>ALTER TABLE stu MODIFY name varchar(20);</code></li>
+</ul>
+</li>
 <li>唯一约束:unique,值不能唯一,<strong>值为null可以重复</strong><ul>
-<li>创建表时,添加唯一约束:CREATE TABLE stu(phone_number varchar(20) unique);</li>
-<li>创建表后,添加唯一约束:ALTER TABLE stu MODIFY phone_number varchar(20) unique;</li>
-<li>删除唯一约束:ALTER TABLE stu DROP INDEX phone_number;</li>
+<li>创建表时,添加唯一约束:<code>CREATE TABLE stu(phone_number varchar(20) unique);</code></li>
+<li>创建表后,添加唯一约束:<code>ALTER TABLE stu MODIFY</code> phone_number varchar(20) unique;</li>
+<li>删除唯一约束:<code>ALTER TABLE stu DROP INDEX phone_number;</code></li>
 </ul>
 </li>
 <li>主键约束:primary key<ol>
@@ -623,14 +637,14 @@
 <li>主键就是表中记录的唯一标识</li>
 </ol>
 </li>
-<li>在创建表时,添加主键约束:CREATE TABLE stu(id int primary key);–给id添加主键约束</li>
-<li>创建完表后添加主键约束:ALTER TABLE stu MODIFY id INT primary key;</li>
-<li>删除主键约束:ALTER TABLE stu DROP PRIMARY KEY;</li>
+<li>在创建表时,添加主键约束:<code>CREATE TABLE stu(id int primary key);--给id添加主键约束</code></li>
+<li>创建完表后添加主键约束:<code>ALTER TABLE stu MODIFY id INT primary key;</code></li>
+<li>删除主键约束:<code>ALTER TABLE stu DROP PRIMARY KEY;</code></li>
 <li>自动增长:<ul>
 <li>概念:如果某一列是数值类型的，使用auto_increment可以来完成值的自动增长</li>
-<li>创建表时添加自动增长:CREATE TABLE stu(id int PRIMARY KEY AUTO_INCREMENT);</li>
-<li>创建完表时添加自动增长:ALTER TABLE stu MODIFY id int AUTO_INCREMENT;</li>
-<li>删除自动增长:ALTER TABLE stu MODIFY id INT;</li>
+<li>创建表时添加自动增长:<code>CREATE TABLE stu(id int PRIMARY KEY AUTO_INCREMENT);</code></li>
+<li>创建完表时添加自动增长:<code>ALTER TABLE stu MODIFY id int AUTO_INCREMENT;</code></li>
+<li>删除自动增长:<code>ALTER TABLE stu MODIFY id INT;</code></li>
 <li><strong>自动增长一般配合主键约束一起使用,添加主键时加上自动增长属性</strong></li>
 </ul>
 </li>
@@ -638,13 +652,177 @@
 </li>
 <li>外键约束<ul>
 <li>在创建表时，可以添加外键<ul>
-<li>语法:CREATE TABLE 表名(外键列,constraint (外键名称) foreign key 外键列名称 references 主表名称(主表列名称));</li>
+<li>语法:<code>CREATE TABLE 表名(外键列,constraint (外键名称) foreign key 外键列名称 references 主表名称(主表列名称));</code></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/uncategorized/线性表/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pabo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pabo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/uncategorized/线性表/" itemprop="url">Untitled</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-22T12:07:58+08:00">
+                2019-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="线性表"><a href="#线性表" class="headerlink" title="线性表"></a>线性表</h1><h2 id="线性表数据类型描述"><a href="#线性表数据类型描述" class="headerlink" title="线性表数据类型描述"></a>线性表数据类型描述</h2><ul>
+<li>数据对象集：线性表是n(&gt;=0)个元素构成的有序序列</li>
+<li>操作集: 线性表L(List),int i表示位置，元素X(ElementType)</li>
+<li>主要操作:</li>
+<li><ul>
+<li><code>List MakeEmpty() //初始化一个空线性表L</code></li>
+</ul>
+</li>
+<li><ul>
+<li><code>ElementType FindKth(int K,List L) //根据位序K，返回相应元素</code></li>
+</ul>
+</li>
+<li><ul>
+<li><code>int Find(ElementType X,List L) //在线性表L中查找X的第一次出现的位置</code></li>
+</ul>
+</li>
+<li><ul>
+<li><code>void Insert(ElementType X,int i,List L) //在位序i前插入一个新元素X</code></li>
+</ul>
+</li>
+<li><ul>
+<li><code>void Delete(int i,List L) //删除指定位序i的元素</code></li>
+</ul>
+</li>
+<li><ul>
+<li><code>int Length(List L) //返回线性表L的长度n</code></li>
+</ul>
+</li>
+</ul>
+<h2 id="线性表的顺序存储实现"><a href="#线性表的顺序存储实现" class="headerlink" title="线性表的顺序存储实现"></a>线性表的顺序存储实现</h2><ul>
+<li>利用数组的<strong>连续存储空间顺序存放</strong>线性表的各元素</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> *<span class="title">List</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span></span><br><span class="line">    ElementType Data[MAXSIZE];<span class="comment">//定义数组</span></span><br><span class="line">    <span class="keyword">int</span> Last;<span class="comment">//定义一个Last，代表线性表最后一个元素的位置</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> <span class="title">L</span>;</span></span><br><span class="line">List PtrL;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>访问下标为i的元素：<code>L.Data[i] or PtrL-&gt;Data[i]</code><br><br>线性表的长度：<code>L.Last+1 or PtrL-&gt;Last+1</code><br></p>
+</blockquote>
+<h3 id="主要操作的实现"><a href="#主要操作的实现" class="headerlink" title="主要操作的实现"></a>主要操作的实现</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.初始化</span></span><br><span class="line"><span class="function">List <span class="title">MakeEmpty</span><span class="params">()</span></span>&#123;</span><br><span class="line">    List PtrL;</span><br><span class="line">    PtrL=(List)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct LNode));</span><br><span class="line">    PtrL-&gt;Last=<span class="number">-1</span>;</span><br><span class="line">    <span class="keyword">return</span> PtrL;</span><br><span class="line">    <span class="comment">//malloc()函数，memory allocation,动态内存分配，申请连续的指定大小的内存空间</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2.查找</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Find</span><span class="params">(ElementType X,List PtrL)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i&lt;=PtrL-&gt;Last &amp;&amp; PtrL-&gt;Data[i]!=X)&#123;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i&gt;PtrL-&gt;Last)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> i;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//3.插入</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Insert</span><span class="params">(ElementType X,<span class="keyword">int</span> i,List PtrL)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j;</span><br><span class="line">    <span class="keyword">if</span>(PtrL-&gt;Last==MAXSIZE<span class="number">-1</span>)&#123;<span class="comment">//表空间已满，不能插入</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"表满"</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i&lt;<span class="number">1</span>||i&gt;PtrL-&gt;Last+<span class="number">2</span>)&#123;<span class="comment">//检查插入位置的合法性</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"位置不合法"</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(j=PtrL-&gt;Last;j&gt;=i<span class="number">-1</span>;j--)&#123;</span><br><span class="line">        PtrL-&gt;Data[j+<span class="number">1</span>]=PtrL-&gt;Data[j];</span><br><span class="line">        <span class="comment">//新元素插入</span></span><br><span class="line">        PtrL-&gt;Data[i<span class="number">-1</span>]=X;</span><br><span class="line">        PtrL-&gt;Last++;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Delete</span><span class="params">(<span class="keyword">int</span> i,List PtrL)</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> j;</span><br><span class="line">    <span class="keyword">if</span>(i&lt;<span class="number">1</span>||i&gt;PtrL-&gt;Last+<span class="number">2</span>)&#123;<span class="comment">//检查插入位置的合法性</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"位置不合法"</span>);</span><br><span class="line">    <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span>(j=i;j&lt;=PtrL-&gt;Last;j++)&#123;</span><br><span class="line">        PtrL-&gt;Data[j<span class="number">-1</span>]=PtrL-&gt;Data[j];<span class="comment">//ai+1-an顺序向前移动</span></span><br><span class="line">        PtrL-&gt;Last--;<span class="comment">//Last仍指向最后元素</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="线性表的链式存储实现"><a href="#线性表的链式存储实现" class="headerlink" title="线性表的链式存储实现"></a>线性表的链式存储实现</h3><ul>
+<li><strong>不要求逻辑上相邻的两个元素物理上也相邻</strong>:通过”链”建立起数据元素之间的逻辑关系</li>
+<li>插入、删除<strong>不需要移动数据元素</strong>，只需要修改”链”</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> *<span class="title">List</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span></span><br><span class="line">    ElementType Data;</span><br><span class="line">    List Next;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> <span class="title">L</span>;</span></span><br><span class="line">List PtrL;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>主要操作的实现</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.求表长,通过遍历表来实现</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Length</span><span class="params">(List PtrL)</span></span>&#123;</span><br><span class="line">    List p=PtrL;<span class="comment">//p指向表的第一个节点</span></span><br><span class="line">    <span class="keyword">int</span> j=<span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(p)&#123;</span><br><span class="line">        p=p-&gt;Next;</span><br><span class="line">        j++;<span class="comment">//当前p指向的是第j个节点</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> j;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2.查找,通过遍历来实现</span></span><br><span class="line"><span class="function">List <span class="title">FindKth</span><span class="params">(<span class="keyword">int</span> K,List PtrL)</span></span>&#123;</span><br><span class="line">    List p=PtrL;</span><br><span class="line">    <span class="keyword">int</span> i=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(p!=null&amp;&amp;i&lt;K)&#123;</span><br><span class="line">        p=p-&gt;Next;</span><br><span class="line">        i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(i==K)</span><br><span class="line">      <span class="keyword">return</span> p;<span class="comment">//找到第K个，返回指针</span></span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">NULL</span>;<span class="comment">//否则返回空</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//3.插入</span></span><br><span class="line"><span class="function">List <span class="title">Insert</span><span class="params">(ElementType X,<span class="keyword">int</span> i,List PtrL)</span></span>&#123;</span><br><span class="line">    List p,s;</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">1</span>)&#123;<span class="comment">//新节点插入在表头</span></span><br><span class="line">        s=(List)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct Node));<span class="comment">//申请、填装节点</span></span><br><span class="line">        s-&gt;Data=X;</span><br><span class="line">        s-&gt;Next=PtrL;</span><br><span class="line">        <span class="keyword">return</span> s;<span class="comment">//返回新表头指针</span></span><br><span class="line">    &#125;</span><br><span class="line">    p=FindKth(i<span class="number">-1</span>,PtrL);<span class="comment">//查找i-1个节点</span></span><br><span class="line">    <span class="keyword">if</span>(p==<span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"参数i错误"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        s=(List)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct LNode));</span><br><span class="line">        s-&gt;Data=X;</span><br><span class="line">        s-&gt;Next=p-&gt;Next;<span class="comment">//新节点插入在第i-1个节点的后面</span></span><br><span class="line">        p-&gt;Next=s;</span><br><span class="line">        <span class="keyword">return</span> PtrL;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//4.删除</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">1.先找到链表的第i-1个节点，用p指向</span></span><br><span class="line"><span class="comment">2.再用指针s指向要被删除的节点(p的下一个节点)</span></span><br><span class="line"><span class="comment">3.修改指针,删除s所指节点</span></span><br><span class="line"><span class="comment">4.最后释放s所指节点的空间</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function">List <span class="title">Delete</span><span class="params">(<span class="keyword">int</span> i,List PtrL)</span></span>&#123;</span><br><span class="line">    List p,s;</span><br><span class="line">    <span class="keyword">if</span>(i==<span class="number">1</span>)&#123;<span class="comment">//若要删除的是表的第一个节点</span></span><br><span class="line">    s=PtrL;<span class="comment">//s指向第一个节点</span></span><br><span class="line">    <span class="keyword">if</span>(PtrL!=null)</span><br><span class="line">      PtrL=PtrL-&gt;Next;<span class="comment">//从链表中删除</span></span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">      <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">      <span class="built_in">free</span>(s);<span class="comment">//释放被删除节点</span></span><br><span class="line">    <span class="keyword">return</span> PtrL;</span><br><span class="line">    &#125;</span><br><span class="line">    p=FindKth(i<span class="number">-1</span>,PtrL);<span class="comment">//查找第i-1个节点</span></span><br><span class="line">    <span class="keyword">if</span>(p==<span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"第%d个节点不存在"</span>,i<span class="number">-1</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(p-&gt;Next==<span class="literal">NULL</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"第%d个节点不存在"</span>,i);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        s=p-&gt;Next;<span class="comment">//s指向第i个节点</span></span><br><span class="line">        p-&gt;Next=s-&gt;Next;<span class="comment">//从链表中删除</span></span><br><span class="line">        <span class="built_in">free</span>(s);<span class="comment">//释放被删除节点</span></span><br><span class="line">        <span class="keyword">return</span> PtrL;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
           
         
       
@@ -1017,6 +1195,193 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/数据结构/堆栈/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="pabo">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pabo">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/数据结构/堆栈/" itemprop="url">堆栈</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-22T10:27:49+08:00">
+                2019-04-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="堆栈"><a href="#堆栈" class="headerlink" title="堆栈"></a>堆栈</h1><ul>
+<li>堆栈(Stack):具有一定操作约束的线性表<ul>
+<li>只在一端(栈顶，Top)做插入、删除</li>
+<li>插入数据:入栈(Push)</li>
+<li>删除数据:出栈(Pop)</li>
+<li>后入先出：Last In First Out(LIFO)</li>
+</ul>
+</li>
+</ul>
+<h2 id="堆栈的抽象数据类型描述"><a href="#堆栈的抽象数据类型描述" class="headerlink" title="堆栈的抽象数据类型描述"></a>堆栈的抽象数据类型描述</h2><blockquote>
+<ul>
+<li>类型名称:堆栈(Stack)</li>
+<li>数据对象集:<strong>一个有0个或多个元素的有穷线性表</strong></li>
+<li>操作集:长度为MaxSize的堆栈S,堆栈元素Item</li>
+</ul>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Stack <span class="title">CreateStack</span><span class="params">(<span class="keyword">int</span> MaxSize)</span></span>;<span class="comment">//生成空堆栈，其最大长度为MaxSize</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsFull</span><span class="params">(Stack S,<span class="keyword">int</span> MaxSize)</span></span>;<span class="comment">//判断堆栈S是否已满</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Push</span><span class="params">(Stack S,ElementType item)</span></span>;<span class="comment">//将元素item压入堆栈</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsEmpty</span><span class="params">(Stack S)</span></span>;<span class="comment">//判断堆栈S是否为空</span></span><br><span class="line"><span class="function">ElementType <span class="title">Pop</span><span class="params">(Stack S)</span></span>;<span class="comment">//删除并返回栈顶元素</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>Push和Pop可以穿插交替进行</strong></li>
+</ul>
+<h3 id="栈的顺序存储实现"><a href="#栈的顺序存储实现" class="headerlink" title="栈的顺序存储实现"></a>栈的顺序存储实现</h3><blockquote>
+<p>栈的顺序存储结构通常由一个<strong>一维数组</strong>和一个记录<strong>栈顶</strong>元素位置的变量组成</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxSize <span class="meta-string">&lt;存储数据元素的最大个数&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> *<span class="title">Stack</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SNode</span>&#123;</span></span><br><span class="line">    ElementType Data[MaxSize];</span><br><span class="line">    <span class="keyword">int</span> Top;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//1.入栈</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Push</span><span class="params">(Stack PtrS,ElementType item)</span></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(PtrS-&gt;Top==MaxSize<span class="number">-1</span>)&#123;</span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">"堆栈满"</span>);</span><br><span class="line">       <span class="keyword">return</span>;</span><br><span class="line">   &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">       PtrS-&gt;Data[++(PtrS-&gt;Top)]==item;</span><br><span class="line">       <span class="keyword">return</span>;</span><br><span class="line">   &#125; </span><br><span class="line"><span class="comment">//2.出栈</span></span><br><span class="line"><span class="function">ElementType <span class="title">Pop</span><span class="params">(Stack S)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(PtrS-&gt;Top==<span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"堆栈空"</span>);</span><br><span class="line">        <span class="keyword">return</span> ERROR;<span class="comment">//ERROR是ElementType的特殊值，标志错误</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> PtrS-&gt;Data[(PtrS-&gt;Top)--];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="堆栈的链式存储实现"><a href="#堆栈的链式存储实现" class="headerlink" title="堆栈的链式存储实现"></a>堆栈的链式存储实现</h3><blockquote>
+<p>栈的链式存储结构实际上就是一个<strong>单链表</strong>，叫做<strong>链栈</strong>。插入和删除操作只能在链栈的栈顶进行。<br><strong>栈顶指针Top应该在链表的头</strong>，因为链栈是一个单链表，如果Top在链尾，插入操作较好实现，但是找不到上一个节点，删除操作无法完成，所以链尾不能做栈顶指针Top.</p>
+</blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> *<span class="title">Stack</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SNode</span>&#123;</span></span><br><span class="line">    ElementType Data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> *<span class="title">Next</span>;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//1.堆栈初始化</span></span><br><span class="line"><span class="function">Stack <span class="title">CreateStack</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">/*构建一个堆栈的头节点，返回指针*/</span></span><br><span class="line">    Stack S;</span><br><span class="line">    S=(Stack)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct SNode));</span><br><span class="line">    S-&gt;Next=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> S;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2.判断堆栈S是否为空</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsEmpty</span><span class="params">(Stack S)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (S-&gt;Next==<span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//3.压栈</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Push</span><span class="params">(ElementType item,Stack S)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*将元素item压入堆栈S*/</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> *<span class="title">TmpCell</span>;</span></span><br><span class="line">    TmpCell=(struct SNode *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct SNode));</span><br><span class="line">    TmpCell-&gt;Data=item;</span><br><span class="line">    TmpCell-&gt;Next=S-&gt;Next;</span><br><span class="line">    S-&gt;Next=TmpCell;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//4.出栈</span></span><br><span class="line"><span class="function">ElementType <span class="title">Pop</span><span class="params">(Stack S)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*删除并返回堆栈S的栈顶元素*/</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> *<span class="title">FirstCell</span>;</span></span><br><span class="line">    ElementType TopElem;</span><br><span class="line">    <span class="keyword">if</span>(IsEmpty(S))&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"堆栈空"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        FirstCell=S-&gt;Next;</span><br><span class="line">        S-&gt;Next=FirstCell-&gt;Next;</span><br><span class="line">        TopElem=FirstCell-&gt;Data;</span><br><span class="line">        <span class="built_in">free</span>(FirstCell);</span><br><span class="line">        <span class="keyword">return</span> TopElem;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="中缀表达式转换为后缀表达式"><a href="#中缀表达式转换为后缀表达式" class="headerlink" title="中缀表达式转换为后缀表达式"></a>中缀表达式转换为后缀表达式</h4><ul>
+<li><p>从头到尾读取<strong>中缀表达式的每个对象</strong>，对不同对象按不同的情况处理</p>
+<ol>
+<li>运算数:直接输出</li>
+<li>左括号:压入堆栈</li>
+<li>右括号:将<strong>栈顶的运算符弹出</strong>并<strong>输出,直到遇到左括号(出栈，不输出)</strong></li>
+<li>运算符:<ul>
+<li>若<strong>优先级大于栈顶运算符</strong>时，则把它<strong>压栈</strong></li>
+<li>若<strong>优先级小于等于栈顶运算符</strong>时，将<strong>栈顶运算符弹出并输出</strong>;再比较新的栈顶运算符，直到该运算符大于栈顶运算符优先级为止，然后将该运算符<strong>压栈</strong></li>
+</ul>
+</li>
+<li>若各对象处理完毕，则把堆栈中存留的运算符一并输出</li>
+</ol>
+</li>
+<li><p>如下是一个表达式的转换过程:</p>
+</li>
+</ul>
+<p><img src="/运算符的堆栈运行过程.png" alt="运算符的堆栈运行过程"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/数据结构/树/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1112,6 +1477,7 @@
           
             <h1 id="树"><a href="#树" class="headerlink" title="树"></a>树</h1><h2 id="查找"><a href="#查找" class="headerlink" title="查找"></a>查找</h2><blockquote>
 <p>根据某个给定<strong>关键字K</strong>,从<strong>集合R</strong>中找出关键字与K相同的记录</p>
+</blockquote>
 <ul>
 <li>静态查找:集合中记录是固定的</li>
 <li><ul>
@@ -1124,32 +1490,19 @@
 </ul>
 </li>
 </ul>
-</blockquote>
 <h3 id="静态查找"><a href="#静态查找" class="headerlink" title="静态查找"></a>静态查找</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.顺序查找，使用一个数组来实现</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">SequentialSearch</span><span class="params">(List Tbl,ElementType K)</span></span>&#123;</span><br><span class="line">    <span class="comment">//在Element[1]~Element[n]中查找关键字为K的数据元素</span></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line">    Tbl-&gt;Element[<span class="number">0</span>]=K;<span class="comment">//建立哨兵</span></span><br><span class="line">    <span class="keyword">for</span>(i=Tbl-&gt;Length;Tbl-&gt;Element[i]!=K;i--)&#123;</span><br><span class="line">        <span class="keyword">return</span> i;<span class="comment">//查找成功返回所在单元下标,不成功返回0</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">LNode</span> *<span class="title">List</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">LNode</span>&#123;</span></span><br><span class="line">    ElementType Element[MAXSIZE];</span><br><span class="line">    <span class="keyword">int</span> length;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//顺序查找的一种实现(无"实现")</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">SequentialSearch</span><span class="params">(List Tbl,ElementType K)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">/*在Element[1]~Element[n]中查找关键字为K的数据元素*/</span></span><br><span class="line">    <span class="keyword">int</span> i;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(i=Tbl-&gt;Length;i&gt;<span class="number">0</span>&amp;&amp;Tbl-&gt;Element[i]!=K;i--);</span><br><span class="line">    <span class="keyword">return</span> i;<span class="comment">/*查找成功返回所在单元下标;不成功返回0*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>2.二分查找(Binary Search)</p>
+<ol start="2">
+<li>二分查找(Binary Search)</li>
+</ol>
 <ul>
-<li>假设n个数据元素的关键字满足有序(比如:小到大)<br><br>k1&lt;k2&lt;….&lt;kn，并且是连续存放(数组),那么可以进行二分查找.</li>
+<li>假设n个数据元素的关键字满足有序(比如:小到大):k1&lt;k2&lt;….&lt;kn，并且是连续存放(数组),那么可以进行二分查找.</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">BinarySearch</span><span class="params">(List Tbl,ElementType K)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*在表中查找关键字为K的数据元素*/</span></span><br><span class="line">    <span class="keyword">int</span> left,right,mid,NoFound=<span class="number">-1</span>;</span><br><span class="line">    left=<span class="number">1</span>;<span class="comment">/*初始化左边界*/</span></span><br><span class="line">    right=Tbl-&gt;length;<span class="comment">/*初始化右边界*/</span></span><br><span class="line">    <span class="keyword">while</span>(left&lt;=right)&#123;</span><br><span class="line">        mid=(left+right)/<span class="number">2</span>;<span class="comment">/*计算中间元素的坐标*/</span></span><br><span class="line">        <span class="keyword">if</span>(K&lt;Tbl-&gt;Element[mid])</span><br><span class="line">            right=mid<span class="number">-1</span>;<span class="comment">/*调整右边界*/</span></span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>     (K&gt;Tbl-&gt;Element[mid])</span><br><span class="line">            left=mid+<span class="number">1</span>;<span class="comment">/*调整左边界*/</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="keyword">return</span> mid;<span class="comment">/*查找成功，返回数据元素的下标*/</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> NotFound;<span class="comment">/*查找不成功，返回-1*/</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="树的定义"><a href="#树的定义" class="headerlink" title="树的定义"></a>树的定义</h2><ul>
-<li>树(Tree):n(n&gt;=0)个节点构成的有限集合.</li>
-<li><ul>
+<li>树(Tree):n(n&gt;=0)个节点构成的有限集合.<ul>
 <li>当n=0时，称为<strong>空树</strong>;</li>
-</ul>
-</li>
-<li><ul>
-<li>对于任何一颗<strong>非空树</strong>(n&gt;0),它具备以下性质:</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
+<li>对于任何一颗<strong>非空树</strong>(n&gt;0),它具备以下性质:<ul>
 <li>树中有一个称为”根(Root)”的特殊节点，用r表示;</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><ul>
-<li><ul>
 <li>其余节点可分为m(m&gt;0)个<strong>互不相交的</strong>有限集T1,T2,….,Tm,其中每个集合本身又是一颗树，称为原来树的”<strong>子树</strong>“(SubTree)</li>
 </ul>
 </li>
@@ -1165,6 +1518,8 @@
 </blockquote>
 <blockquote>
 <p>树的一些基本术语</p>
+</blockquote>
+<blockquote>
 <ol>
 <li>节点的度(Degree):节点的子树个数</li>
 <li>树的度:树的所有节点中最大的度数</li>
@@ -1179,288 +1534,87 @@
 <li>树的深度(Depth):树中所有节点中的<strong>最大层次</strong>是这颗树的深度</li>
 </ol>
 </blockquote>
-<h2 id="二叉树的抽象数据类型定义"><a href="#二叉树的抽象数据类型定义" class="headerlink" title="二叉树的抽象数据类型定义"></a>二叉树的抽象数据类型定义</h2><blockquote>
-<ul>
+<h2 id="二叉树的抽象数据类型定义"><a href="#二叉树的抽象数据类型定义" class="headerlink" title="二叉树的抽象数据类型定义"></a>二叉树的抽象数据类型定义</h2><ul>
 <li>类型名称:二叉树</li>
 <li>数据对象集:一个有穷的节点集合。若不为空，则由<strong>根节点和其左、右二叉子树组成</strong></li>
-<li>操作集:</li>
-<li><ol>
-<li><figure class="highlight plain"><figcaption><span>IsEmpty(BinTree BT);//判别BT是否为空```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt;* 2. ```void Traversal(BinTree BT);//遍历，按某顺序访问每个节点</span><br></pre></td></tr></table></figure>
-</li>
+<li>操作集:<ol>
+<li><code>Boolean IsEmpty(BinTree BT);//判别BT是否为空</code></li>
+<li><code>void Traversal(BinTree BT);//遍历，按某顺序访问每个节点</code></li>
+<li><code>BinTree CreateBinTree();//创建一个二叉树</code></li>
 </ol>
 </li>
 </ul>
-</blockquote>
 <blockquote>
-<ul>
-<li><ol start="3">
-<li><figure class="highlight plain"><figcaption><span>CreateBinTree();//创建一个二叉树```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&gt;常用遍历方法有:</span><br><span class="line">&gt;```C++</span><br><span class="line">&gt;void PreOrderTraversal(BinTree BT);//先序--根、左子树、右子树</span><br><span class="line">&gt;void InOrderTraversal(BinTree BT);//中序--左子树、根、右子树</span><br><span class="line">&gt;void PostOrderTraversal(BinTree BT);//后序--左子树、右子树、根</span><br><span class="line">&gt;void LevelOrderTraversal(BinTree BT);//层次遍历，从上到下、从左到右</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-</li>
-</ul>
+<p>常用遍历方法有:</p>
 </blockquote>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PreOrderTraversal</span><span class="params">(BinTree BT)</span></span>;<span class="comment">//先序--根、左子树、右子树</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InOrderTraversal</span><span class="params">(BinTree BT)</span></span>;<span class="comment">//中序--左子树、根、右子树</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PostOrderTraversal</span><span class="params">(BinTree BT)</span></span>;<span class="comment">//后序--左子树、右子树、根</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LevelOrderTraversal</span><span class="params">(BinTree BT)</span></span>;<span class="comment">//层次遍历，从上到下、从左到右</span></span><br></pre></td></tr></table></figure>
 <h2 id="二叉树的存储结构"><a href="#二叉树的存储结构" class="headerlink" title="二叉树的存储结构"></a>二叉树的存储结构</h2><blockquote>
 <ol>
 <li>顺序存储结构<br>完全二叉树:按从上至下、从左到右顺序存储n个节点的完全二叉树的<strong>节点父子关系</strong>：</li>
 </ol>
 </blockquote>
 <h2 id="二叉树的遍历"><a href="#二叉树的遍历" class="headerlink" title="二叉树的遍历"></a>二叉树的遍历</h2><ol>
-<li>先序遍历</li>
-</ol>
-<blockquote>
-<p>遍历过程为:</p>
-<ol>
+<li>先序遍历<ul>
+<li>遍历过程为:<ol>
 <li>访问根节点</li>
 <li>先序遍历其左子树</li>
 <li>先序遍历其右子树</li>
 </ol>
-</blockquote>
+</li>
+</ul>
+</li>
+</ol>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PreOrderTraversal</span><span class="params">(BinTree BT)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(BT)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,BT-&gt;Data);</span><br><span class="line">        PreOrderTraversal(BT-&gt;Left);</span><br><span class="line">        PreOrderTraversal(BT-&gt;Right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li>中序遍历</li>
-</ol>
-<blockquote>
-<p>遍历过程为:</p>
-<ol>
+<li>中序遍历<ul>
+<li>遍历过程为:<ol>
 <li>中序遍历其左子树</li>
 <li>访问根节点</li>
 <li>中序遍历其右子树</li>
 </ol>
-</blockquote>
+</li>
+</ul>
+</li>
+</ol>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InOrderTraversal</span><span class="params">(BinTree BT)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(BT)&#123;</span><br><span class="line">        InOrderTraversal(BT-&gt;Left);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,BT-&gt;Data);</span><br><span class="line">        InOrderTraversal(BT-&gt;Right);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol start="3">
-<li>后序遍历</li>
-</ol>
-<blockquote>
-<p>遍历过程为:</p>
-<ol>
+<li>后序遍历<ul>
+<li>遍历过程为:<ol>
 <li>后序遍历其左子树</li>
 <li>后序遍历其右子树</li>
 <li>访问根节点</li>
 </ol>
-</blockquote>
+</li>
+</ul>
+</li>
+</ol>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PostOrderTraversal</span><span class="params">(BinTree BT)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(BT)&#123;</span><br><span class="line">        PostOrderTraversal(BT-&gt;Left);</span><br><span class="line">        PostOrderTraversal(BT-&gt;Right);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>,BT-&gt;Data);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>先序、中序和后序遍历过程:遍历过程中经过节点的<strong>路线一样</strong>,只是<strong>访问各节点的时机不同</strong>。</p>
 </blockquote>
 <h2 id="二叉树的非递归遍历"><a href="#二叉树的非递归遍历" class="headerlink" title="二叉树的非递归遍历"></a>二叉树的非递归遍历</h2><ul>
-<li>中序遍历非递归遍历算法<blockquote>
-<p>非递归算法实现的基本思路:<strong>使用堆栈</strong></p>
-</blockquote>
+<li>中序遍历非递归遍历算法<ul>
+<li>非递归算法实现的基本思路:<strong>使用堆栈</strong><ul>
+<li>遇到一个节点，就把它压栈，并去遍历它的左子树；</li>
+<li>当左子树遍历结束后,从栈顶弹出这个节点并访问它;</li>
+<li>然后按其右指针再去中序遍历该节点的右子树.</li>
+</ul>
 </li>
 </ul>
-<blockquote>
-<p>遇到一个节点，就把它压栈，并去遍历它的左子树；<br><br>当左子树遍历结束后,从栈顶弹出这个节点并访问它;<br><br>然后按其右指针再去中序遍历该节点的右子树.</p>
-</blockquote>
+</li>
+</ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">InOrderTraversal</span><span class="params">(BinTree BT)</span></span>&#123;</span><br><span class="line">    BinTree T=BT;</span><br><span class="line">    Stack S=CreateStack(MaxSize);<span class="comment">//创建并初始化堆栈S*</span></span><br><span class="line">    <span class="keyword">while</span>(T||!IsEmpty(S))&#123;</span><br><span class="line">        <span class="keyword">while</span>(T)&#123;<span class="comment">//一直向左并将沿途节点压入堆栈</span></span><br><span class="line">        push(S,T);</span><br><span class="line">        T=T-&gt;Left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!IsEmpty(S))&#123;</span><br><span class="line">            T=Pop(S);<span class="comment">//节点弹出堆栈</span></span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%5d"</span>,T-&gt;Data);<span class="comment">//访问节点</span></span><br><span class="line">            T=T-&gt;Right;<span class="comment">//转向右子树</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>先序遍历非递归遍历算法</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PreOrderTraversal</span><span class="params">(BinTree BT)</span></span>&#123;</span><br><span class="line">    BinTree T=BT;</span><br><span class="line">    Stack S=CreateStack(MaxSize);<span class="comment">//创建并初始化堆栈S*</span></span><br><span class="line">    <span class="keyword">while</span>(T||!IsEmpty(S))&#123;</span><br><span class="line">        <span class="keyword">while</span>(T)&#123;<span class="comment">//一直向左并将沿途节点压入堆栈</span></span><br><span class="line">        push(S,T);</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%5d"</span>,T-&gt;Data);<span class="comment">//访问节点</span></span><br><span class="line">        T=T-&gt;Left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!IsEmpty(S))&#123;</span><br><span class="line">            T=Pop(S);<span class="comment">//节点弹出堆栈</span></span><br><span class="line">            T=T-&gt;Right;<span class="comment">//转向右子树</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>后序遍历非递归遍历算法<blockquote>
-<p>对于任一节点P，将其入栈，然后沿其左子树一直往下搜索，直到搜索到没有左孩子的节点，此时该节点出现在栈顶，但是此时不能将其出栈并访问，因此其右孩子还未被访问。按照相同规则对其右子树同样处理，当访问完右孩子时，该节点又出现在栈顶，此时可以将其出栈并访问。</p>
-</blockquote>
+<li>后序遍历非递归遍历算法<ul>
+<li>对于任一节点P，将其入栈，然后沿其左子树一直往下搜索，直到搜索到没有左孩子的节点，此时该节点出现在栈顶，但是此时不能将其出栈并访问，因此其右孩子还未被访问。按照相同规则对其右子树同样处理，当访问完右孩子时，该节点又出现在栈顶，此时可以将其出栈并访问。</li>
+</ul>
 </li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">PostOrderTraversal</span><span class="params">(BinTree BT)</span></span>&#123;</span><br><span class="line">    BinTree T,Temp;</span><br><span class="line">    Stack S;</span><br><span class="line">    S=(Stack *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct Stack));</span><br><span class="line">    <span class="keyword">int</span> isFirst=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(T||isEmpty(S))&#123;</span><br><span class="line">        <span class="keyword">while</span>(T)&#123;</span><br><span class="line">            push(T,S);</span><br><span class="line">            isFirst=<span class="number">1</span>;</span><br><span class="line">            T=T-&gt;Left;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(!isEmpty(S))&#123;</span><br><span class="line">            Temp=pop(S);</span><br><span class="line">            <span class="keyword">if</span>(isFirst)&#123;</span><br><span class="line">                isFirst=<span class="number">0</span>;</span><br><span class="line">                push(Temp,S);</span><br><span class="line">                T=Temp-&gt;Right;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"%d"</span>,Temp-&gt;Data);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/数据结构/堆栈/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="pabo">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Pabo">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/数据结构/堆栈/" itemprop="url">堆栈</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-22T10:27:49+08:00">
-                2019-04-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="堆栈"><a href="#堆栈" class="headerlink" title="堆栈"></a>堆栈</h1><blockquote>
-<p>堆栈(Stack):具有一定操作约束的线性表</p>
-<ul>
-<li>只在一端(栈顶，Top)做插入、删除</li>
-<li>插入数据:入栈(Push)</li>
-<li>删除数据:出栈(Pop)</li>
-<li>后入先出：Last In First Out(LIFO)</li>
-</ul>
-</blockquote>
-<h2 id="堆栈的抽象数据类型描述"><a href="#堆栈的抽象数据类型描述" class="headerlink" title="堆栈的抽象数据类型描述"></a>堆栈的抽象数据类型描述</h2><blockquote>
-<ul>
-<li>类型名称:堆栈(Stack)</li>
-<li>数据对象集:<strong>一个有0个或多个元素的有穷线性表</strong></li>
-<li>操作集:长度为MaxSize的堆栈S,堆栈元素Item</li>
-</ul>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Stack <span class="title">CreateStack</span><span class="params">(<span class="keyword">int</span> MaxSize)</span></span>;<span class="comment">//生成空堆栈，其最大长度为MaxSize</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsFull</span><span class="params">(Stack S,<span class="keyword">int</span> MaxSize)</span></span>;<span class="comment">//判断堆栈S是否已满</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Push</span><span class="params">(Stack S,ElementType item)</span></span>;<span class="comment">//将元素item压入堆栈</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsEmpty</span><span class="params">(Stack S)</span></span>;<span class="comment">//判断堆栈S是否为空</span></span><br><span class="line"><span class="function">ElementType <span class="title">Pop</span><span class="params">(Stack S)</span></span>;<span class="comment">//删除并返回栈顶元素</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><strong>Push和Pop可以穿插交替进行</strong></li>
-</ul>
-<hr>
-<h3 id="栈的顺序存储实现"><a href="#栈的顺序存储实现" class="headerlink" title="栈的顺序存储实现"></a>栈的顺序存储实现</h3><blockquote>
-<p>栈的顺序存储结构通常由一个<strong>一维数组</strong>和一个记录<strong>栈顶</strong>元素位置的变量组成</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MaxSize <span class="meta-string">&lt;存储数据元素的最大个数&gt;</span></span></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> *<span class="title">Stack</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SNode</span>&#123;</span></span><br><span class="line">    ElementType Data[MaxSize];</span><br><span class="line">    <span class="keyword">int</span> Top;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//1.入栈</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Push</span><span class="params">(Stack PtrS,ElementType item)</span></span>&#123;</span><br><span class="line">   <span class="keyword">if</span>(PtrS-&gt;Top==MaxSize<span class="number">-1</span>)&#123;</span><br><span class="line">       <span class="built_in">printf</span>(<span class="string">"堆栈满"</span>);</span><br><span class="line">       <span class="keyword">return</span>;</span><br><span class="line">   &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">       PtrS-&gt;Data[++(PtrS-&gt;Top)]==item;</span><br><span class="line">       <span class="keyword">return</span>;</span><br><span class="line">   &#125; </span><br><span class="line"><span class="comment">//2.出栈</span></span><br><span class="line"><span class="function">ElementType <span class="title">Pop</span><span class="params">(Stack S)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(PtrS-&gt;Top==<span class="number">-1</span>)&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"堆栈空"</span>);</span><br><span class="line">        <span class="keyword">return</span> ERROR;<span class="comment">//ERROR是ElementType的特殊值，标志错误</span></span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> PtrS-&gt;Data[(PtrS-&gt;Top)--];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="堆栈的链式存储实现"><a href="#堆栈的链式存储实现" class="headerlink" title="堆栈的链式存储实现"></a>堆栈的链式存储实现</h3><blockquote>
-<p>栈的链式存储结构实际上就是一个<strong>单链表</strong>，叫做<strong>链栈</strong>。插入和删除操作只能在链栈的栈顶进行。<br><strong>栈顶指针Top应该在链表的头</strong>，因为链栈是一个单链表，如果Top在链尾，插入操作较好实现，但是找不到上一个节点，删除操作无法完成，所以链尾不能做栈顶指针Top.</p>
-</blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> *<span class="title">Stack</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SNode</span>&#123;</span></span><br><span class="line">    ElementType Data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> *<span class="title">Next</span>;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//1.堆栈初始化</span></span><br><span class="line"><span class="function">Stack <span class="title">CreateStack</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">/*构建一个堆栈的头节点，返回指针*/</span></span><br><span class="line">    Stack S;</span><br><span class="line">    S=(Stack)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct SNode));</span><br><span class="line">    S-&gt;Next=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> S;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2.判断堆栈S是否为空</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsEmpty</span><span class="params">(Stack S)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (S-&gt;Next==<span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//3.压栈</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Push</span><span class="params">(ElementType item,Stack S)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*将元素item压入堆栈S*/</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> *<span class="title">TmpCell</span>;</span></span><br><span class="line">    TmpCell=(struct SNode *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct SNode));</span><br><span class="line">    TmpCell-&gt;Data=item;</span><br><span class="line">    TmpCell-&gt;Next=S-&gt;Next;</span><br><span class="line">    S-&gt;Next=TmpCell;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//4.出栈</span></span><br><span class="line"><span class="function">ElementType <span class="title">Pop</span><span class="params">(Stack S)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*删除并返回堆栈S的栈顶元素*/</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> *<span class="title">FirstCell</span>;</span></span><br><span class="line">    ElementType TopElem;</span><br><span class="line">    <span class="keyword">if</span>(IsEmpty(S))&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"堆栈空"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        FirstCell=S-&gt;Next;</span><br><span class="line">        S-&gt;Next=FirstCell-&gt;Next;</span><br><span class="line">        TopElem=FirstCell-&gt;Data;</span><br><span class="line">        <span class="built_in">free</span>(FirstCell);</span><br><span class="line">        <span class="keyword">return</span> TopElem;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="中缀表达式转换为后缀表达式"><a href="#中缀表达式转换为后缀表达式" class="headerlink" title="中缀表达式转换为后缀表达式"></a>中缀表达式转换为后缀表达式</h4><blockquote>
-<p>从头到尾读取<strong>中缀表达式的每个对象</strong>，对不同对象按不同的情况处理</p>
-<ol>
-<li>运算数:直接输出</li>
-<li>左括号:压入堆栈</li>
-<li>右括号:将<strong>栈顶的运算符弹出</strong>并<strong>输出,直到遇到左括号(出栈，不输出)</strong></li>
-<li>运算符:</li>
-</ol>
-<ul>
-<li><ul>
-<li>若<strong>优先级大于栈顶运算符</strong>时，则把它<strong>压栈</strong></li>
-</ul>
-</li>
-<li><ul>
-<li>若<strong>优先级小于等于栈顶运算符</strong>时，将<strong>栈顶运算符弹出并输出</strong>;再比较新的栈顶运算符，直到该运算符大于栈顶运算符优先级为止，然后将该运算符<strong>压栈</strong></li>
-</ul>
-</li>
-</ul>
-<ol start="5">
-<li>若各对象处理完毕，则把堆栈中存留的运算符一并输出</li>
-</ol>
-</blockquote>
-<ul>
-<li>如下是一个表达式的转换过程:</li>
-</ul>
-<p><img src="/运算符的堆栈运行过程.png" alt="运算符的堆栈运行过程"></p>
-
           
         
       
@@ -1625,13 +1779,7 @@
 <li>操作集:长度为MaxSize的队列Q,队列元素item</li>
 </ul>
 </blockquote>
-<p>“<code>C++
-Queue CreateQueue(int MaxSize);//生成长度为MaxSize的空队列
-int IsFullQ(Queue Q,int MaxSize);//判断队列Q是否已满
-void AddQ(Queue Q,ElementType item);//将数据元素item插入队列Q中
-int IsEmptyQ(Queue Q);//判断队列Q是否为空
-ElementType DeleteQ(Queue Q);//将队头数据元素从队列中删除并返回
-“</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Queue <span class="title">CreateQueue</span><span class="params">(<span class="keyword">int</span> MaxSize)</span></span>;<span class="comment">//生成长度为MaxSize的空队列</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsFullQ</span><span class="params">(Queue Q,<span class="keyword">int</span> MaxSize)</span></span>;<span class="comment">//判断队列Q是否已满</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">AddQ</span><span class="params">(Queue Q,ElementType item)</span></span>;<span class="comment">//将数据元素item插入队列Q中</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsEmptyQ</span><span class="params">(Queue Q)</span></span>;<span class="comment">//判断队列Q是否为空</span></span><br><span class="line"><span class="function">ElementType <span class="title">DeleteQ</span><span class="params">(Queue Q)</span></span>;<span class="comment">//将队头数据元素从队列中删除并返回</span></span><br></pre></td></tr></table></figure>
 <h2 id="队列的顺序存储实现"><a href="#队列的顺序存储实现" class="headerlink" title="队列的顺序存储实现"></a>队列的顺序存储实现</h2><blockquote>
 <p>通常由一个<strong>一维数组</strong>和一个记录队列头元素位置的变量<code>front</code>以及一个记录队列尾元素位置的变量<code>rear</code>组成</p>
 </blockquote>
@@ -1737,7 +1885,7 @@ ElementType DeleteQ(Queue Q);//将队头数据元素从队列中删除并返回
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="堆栈 堆栈(Stack):具有一定操作约束的线性表  只在一端(栈顶，Top)做插入、删除 插入数据:入栈(Push) 删除数据:出栈(Pop) 后入先出：Last In First Out(LIFO)   堆栈的抽象数据类型描述  类型名称:堆栈(Stack) 数据对象集:一个有0个或多个元素的有穷线性表 操作集:长度为MaxSize的堆栈S,堆栈元素Item   12345Stack Crea">
+<meta name="description" content="堆栈 堆栈(Stack):具有一定操作约束的线性表 只在一端(栈顶，Top)做插入、删除 插入数据:入栈(Push) 删除数据:出栈(Pop) 后入先出：Last In First Out(LIFO)    堆栈的抽象数据类型描述  类型名称:堆栈(Stack) 数据对象集:一个有0个或多个元素的有穷线性表 操作集:长度为MaxSize的堆栈S,堆栈元素Item   12345Stack Crea">
 <meta property="og:type" content="article">
 <meta property="og:title" content="堆栈">
 <meta property="og:url" content="http://yoursite.com/数据结构/堆栈/index.html">
 <meta property="og:site_name" content="Pabo">
-<meta property="og:description" content="堆栈 堆栈(Stack):具有一定操作约束的线性表  只在一端(栈顶，Top)做插入、删除 插入数据:入栈(Push) 删除数据:出栈(Pop) 后入先出：Last In First Out(LIFO)   堆栈的抽象数据类型描述  类型名称:堆栈(Stack) 数据对象集:一个有0个或多个元素的有穷线性表 操作集:长度为MaxSize的堆栈S,堆栈元素Item   12345Stack Crea">
+<meta property="og:description" content="堆栈 堆栈(Stack):具有一定操作约束的线性表 只在一端(栈顶，Top)做插入、删除 插入数据:入栈(Push) 删除数据:出栈(Pop) 后入先出：Last In First Out(LIFO)    堆栈的抽象数据类型描述  类型名称:堆栈(Stack) 数据对象集:一个有0个或多个元素的有穷线性表 操作集:长度为MaxSize的堆栈S,堆栈元素Item   12345Stack Crea">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/运算符的堆栈运行过程.png">
-<meta property="og:updated_time" content="2019-04-22T04:12:45.853Z">
+<meta property="og:updated_time" content="2019-04-25T02:45:30.573Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="堆栈">
-<meta name="twitter:description" content="堆栈 堆栈(Stack):具有一定操作约束的线性表  只在一端(栈顶，Top)做插入、删除 插入数据:入栈(Push) 删除数据:出栈(Pop) 后入先出：Last In First Out(LIFO)   堆栈的抽象数据类型描述  类型名称:堆栈(Stack) 数据对象集:一个有0个或多个元素的有穷线性表 操作集:长度为MaxSize的堆栈S,堆栈元素Item   12345Stack Crea">
+<meta name="twitter:description" content="堆栈 堆栈(Stack):具有一定操作约束的线性表 只在一端(栈顶，Top)做插入、删除 插入数据:入栈(Push) 删除数据:出栈(Pop) 后入先出：Last In First Out(LIFO)    堆栈的抽象数据类型描述  类型名称:堆栈(Stack) 数据对象集:一个有0个或多个元素的有穷线性表 操作集:长度为MaxSize的堆栈S,堆栈元素Item   12345Stack Crea">
 <meta name="twitter:image" content="http://yoursite.com/运算符的堆栈运行过程.png">
 
 
@@ -355,15 +355,15 @@
       
 
       
-        <h1 id="堆栈"><a href="#堆栈" class="headerlink" title="堆栈"></a>堆栈</h1><blockquote>
-<p>堆栈(Stack):具有一定操作约束的线性表</p>
-<ul>
+        <h1 id="堆栈"><a href="#堆栈" class="headerlink" title="堆栈"></a>堆栈</h1><ul>
+<li>堆栈(Stack):具有一定操作约束的线性表<ul>
 <li>只在一端(栈顶，Top)做插入、删除</li>
 <li>插入数据:入栈(Push)</li>
 <li>删除数据:出栈(Pop)</li>
 <li>后入先出：Last In First Out(LIFO)</li>
 </ul>
-</blockquote>
+</li>
+</ul>
 <h2 id="堆栈的抽象数据类型描述"><a href="#堆栈的抽象数据类型描述" class="headerlink" title="堆栈的抽象数据类型描述"></a>堆栈的抽象数据类型描述</h2><blockquote>
 <ul>
 <li>类型名称:堆栈(Stack)</li>
@@ -375,7 +375,6 @@
 <ul>
 <li><strong>Push和Pop可以穿插交替进行</strong></li>
 </ul>
-<hr>
 <h3 id="栈的顺序存储实现"><a href="#栈的顺序存储实现" class="headerlink" title="栈的顺序存储实现"></a>栈的顺序存储实现</h3><blockquote>
 <p>栈的顺序存储结构通常由一个<strong>一维数组</strong>和一个记录<strong>栈顶</strong>元素位置的变量组成</p>
 </blockquote>
@@ -384,30 +383,22 @@
 <p>栈的链式存储结构实际上就是一个<strong>单链表</strong>，叫做<strong>链栈</strong>。插入和删除操作只能在链栈的栈顶进行。<br><strong>栈顶指针Top应该在链表的头</strong>，因为链栈是一个单链表，如果Top在链尾，插入操作较好实现，但是找不到上一个节点，删除操作无法完成，所以链尾不能做栈顶指针Top.</p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> *<span class="title">Stack</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">SNode</span>&#123;</span></span><br><span class="line">    ElementType Data;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> *<span class="title">Next</span>;</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//1.堆栈初始化</span></span><br><span class="line"><span class="function">Stack <span class="title">CreateStack</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="comment">/*构建一个堆栈的头节点，返回指针*/</span></span><br><span class="line">    Stack S;</span><br><span class="line">    S=(Stack)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct SNode));</span><br><span class="line">    S-&gt;Next=<span class="literal">NULL</span>;</span><br><span class="line">    <span class="keyword">return</span> S;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//2.判断堆栈S是否为空</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">IsEmpty</span><span class="params">(Stack S)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> (S-&gt;Next==<span class="literal">NULL</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//3.压栈</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Push</span><span class="params">(ElementType item,Stack S)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*将元素item压入堆栈S*/</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> *<span class="title">TmpCell</span>;</span></span><br><span class="line">    TmpCell=(struct SNode *)<span class="built_in">malloc</span>(<span class="keyword">sizeof</span>(struct SNode));</span><br><span class="line">    TmpCell-&gt;Data=item;</span><br><span class="line">    TmpCell-&gt;Next=S-&gt;Next;</span><br><span class="line">    S-&gt;Next=TmpCell;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//4.出栈</span></span><br><span class="line"><span class="function">ElementType <span class="title">Pop</span><span class="params">(Stack S)</span></span>&#123;</span><br><span class="line">    <span class="comment">/*删除并返回堆栈S的栈顶元素*/</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">SNode</span> *<span class="title">FirstCell</span>;</span></span><br><span class="line">    ElementType TopElem;</span><br><span class="line">    <span class="keyword">if</span>(IsEmpty(S))&#123;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"堆栈空"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">NULL</span>;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        FirstCell=S-&gt;Next;</span><br><span class="line">        S-&gt;Next=FirstCell-&gt;Next;</span><br><span class="line">        TopElem=FirstCell-&gt;Data;</span><br><span class="line">        <span class="built_in">free</span>(FirstCell);</span><br><span class="line">        <span class="keyword">return</span> TopElem;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="中缀表达式转换为后缀表达式"><a href="#中缀表达式转换为后缀表达式" class="headerlink" title="中缀表达式转换为后缀表达式"></a>中缀表达式转换为后缀表达式</h4><blockquote>
-<p>从头到尾读取<strong>中缀表达式的每个对象</strong>，对不同对象按不同的情况处理</p>
+<h4 id="中缀表达式转换为后缀表达式"><a href="#中缀表达式转换为后缀表达式" class="headerlink" title="中缀表达式转换为后缀表达式"></a>中缀表达式转换为后缀表达式</h4><ul>
+<li><p>从头到尾读取<strong>中缀表达式的每个对象</strong>，对不同对象按不同的情况处理</p>
 <ol>
 <li>运算数:直接输出</li>
 <li>左括号:压入堆栈</li>
 <li>右括号:将<strong>栈顶的运算符弹出</strong>并<strong>输出,直到遇到左括号(出栈，不输出)</strong></li>
-<li>运算符:</li>
-</ol>
-<ul>
-<li><ul>
+<li>运算符:<ul>
 <li>若<strong>优先级大于栈顶运算符</strong>时，则把它<strong>压栈</strong></li>
-</ul>
-</li>
-<li><ul>
 <li>若<strong>优先级小于等于栈顶运算符</strong>时，将<strong>栈顶运算符弹出并输出</strong>;再比较新的栈顶运算符，直到该运算符大于栈顶运算符优先级为止，然后将该运算符<strong>压栈</strong></li>
 </ul>
 </li>
-</ul>
-<ol start="5">
 <li>若各对象处理完毕，则把堆栈中存留的运算符一并输出</li>
 </ol>
-</blockquote>
-<ul>
-<li>如下是一个表达式的转换过程:</li>
+</li>
+<li><p>如下是一个表达式的转换过程:</p>
+</li>
 </ul>
 <p><img src="/运算符的堆栈运行过程.png" alt="运算符的堆栈运行过程"></p>
 
@@ -434,8 +425,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/数据结构/队列/" rel="next" title="队列">
-                <i class="fa fa-chevron-left"></i> 队列
+              <a href="/数据结构/树/" rel="next" title="树">
+                <i class="fa fa-chevron-left"></i> 树
               </a>
             
           </div>
@@ -444,8 +435,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/数据结构/树/" rel="prev" title="树">
-                树 <i class="fa fa-chevron-right"></i>
+              <a href="/Java笔记/注解/" rel="prev" title="注解">
+                注解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -523,7 +514,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

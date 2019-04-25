@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Pabo">
 <meta property="og:description" content="MySQL数据库的概念 数据库,DataBase,简称:DB 什么是数据库? Structured Query Language:结构化查询语言.定义了操作所有关系型数据库的规则。每种数据库操作的方式存在不一样的地方，称为“方言”. 用于存储和管理数据的仓库   数据库的特点: 持久化存储数据。数据库就是一个文件系统 方便存储和管理数据 使用了统一的方式操作数据库–SQL   常见的数据库软件:">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-25T02:22:52.500Z">
+<meta property="og:updated_time" content="2019-04-25T02:51:06.279Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL笔记">
 <meta name="twitter:description" content="MySQL数据库的概念 数据库,DataBase,简称:DB 什么是数据库? Structured Query Language:结构化查询语言.定义了操作所有关系型数据库的规则。每种数据库操作的方式存在不一样的地方，称为“方言”. 用于存储和管理数据的仓库   数据库的特点: 持久化存储数据。数据库就是一个文件系统 方便存储和管理数据 使用了统一的方式操作数据库–SQL   常见的数据库软件:">
@@ -406,12 +406,12 @@
 </ul>
 </li>
 <li><ul>
-<li>查询某个数据库的字符集:查看某个数据的创建语句 SHOW　CREATE DATABASE mysql # use character utf-8</li>
+<li>查询某个数据库的字符集:查看某个数据的创建语句 <code>SHOW　CREATE DATABASE mysql # use character utf-8</code></li>
 </ul>
 </li>
 <li>U(Update):修改</li>
 <li><ul>
-<li>修改数据库的字符集:ALTER DATABASE db1 CHARACTER SET UTF8;//不能使用utf-8,会报错，使用utf8</li>
+<li>修改数据库的字符集:<code>ALTER DATABASE db1 CHARACTER SET UTF8;//不能使用utf-8,会报错，使用utf8</code></li>
 </ul>
 </li>
 <li>D(Delete):删除</li>
@@ -440,22 +440,25 @@
 <li>date:日期，只包含年月日yyyy-MM-dd</li>
 <li>datetime:日期，包含年月日时分秒 yyyy-MM-dd HH:mm:ss</li>
 <li>timestamp:时间戳,包含年月日时分秒 yyyy-MM-dd HH:mm:ss.<strong>如果将来不给这个字段赋值，或赋值为null,则默认使用当前的系统时间，来自动赋值</strong></li>
-<li>varchar:字符串,<figure class="highlight plain"><figcaption><span>varchar(20)//姓名，最大20个字符</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2. R(Rwtrieve)查询:</span><br><span class="line"></span><br><span class="line">```mysql</span><br><span class="line">show tables;//查询某个数据库中所有的表名称</span><br><span class="line">desc 表名;//查询表结构</span><br></pre></td></tr></table></figure></li>
+<li>varchar:字符串,<code>name varchar(20)//姓名，最大20个字符</code></li>
 </ol>
 </li>
 </ol>
+</li>
+<li><p>R(Rwtrieve)查询:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">show tables;//查询某个数据库中所有的表名称</span><br><span class="line">desc 表名;//查询表结构</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>U(Update)修改</p>
 <ol>
-<li>修改表名:ALTER TABLE 表名 rename to 新表名</li>
-<li>修改表的字符集:ALTER TABLE 表名 character set 字符集名称</li>
-<li>添加一列:ALTER TABLE 表名 add 列名 数据类型</li>
-<li>修改列名称 类型:ALTER TABLE 表名 change 列名 [新列名] [新数据类型];</li>
-<li>删除列:ALTER TABLE DROP 列名;</li>
+<li>修改表名:<code>ALTER TABLE 表名 rename to 新表名</code></li>
+<li>修改表的字符集:<code>ALTER TABLE 表名 character set 字符集名称</code></li>
+<li>添加一列:<code>ALTER TABLE 表名 add 列名 数据类型</code></li>
+<li>修改列名称 类型:<code>ALTER TABLE 表名 change 列名 [新列名] [新数据类型];</code></li>
+<li>删除列:<code>ALTER TABLE DROP 列名;</code></li>
 </ol>
 </li>
 <li>D(Delete)删除<ul>
-<li>drop table if exists 表名;</li>
+<li><code>drop table if exists 表名;</code></li>
 </ul>
 </li>
 </ol>
@@ -463,7 +466,7 @@
 </ol>
 <h3 id="DML-增删改表中数据"><a href="#DML-增删改表中数据" class="headerlink" title="DML:增删改表中数据"></a>DML:增删改表中数据</h3><ol>
 <li>添加数据:<ul>
-<li>语法:insert into 表名(列名1,列名2,…,列名n) values(值1,值2,…,值n);</li>
+<li>语法:<code>insert into 表名(列名1,列名2,...,列名n) values(值1,值2,...,值n);</code></li>
 <li>注意:<ul>
 <li>列名和值要一一对应</li>
 <li>如果表名后，不定义列名，则默认给所有列添加值:insert into 表名 values(值1,值2,…,值n);</li>
@@ -475,12 +478,8 @@
 <li>删除数据:<ul>
 <li>语法:<ul>
 <li>delete from 表名 [where 条件]</li>
-<li>注意:</li>
-<li><ol>
+<li>注意:<ol>
 <li>如果不加条件，会删除表中所有记录</li>
-</ol>
-</li>
-<li><ol start="2">
 <li>如果要删除所有记录<ol>
 <li>delete from 表名;–不推荐使用。有多少条记录就会执行多少次删除操作，影响性能</li>
 <li>TRUNCATE TABLE 表名;–推荐使用.先删除表，然后再创建一张一样的表</li>
@@ -493,7 +492,7 @@
 </ul>
 </li>
 <li>修改数据:<ul>
-<li>语法: update 表名 set 列名1 = 值1,列名2 = 值2,…[where 条件];</li>
+<li>语法: <code>update 表名 set 列名1 = 值1,列名2 = 值2,...[where 条件];</code></li>
 </ul>
 </li>
 </ol>
@@ -569,7 +568,7 @@
 <li>聚合函数:将一列数据作为一个整体，进行纵向的计算<ol>
 <li>count:计算个数<ul>
 <li>SELECT COUNT(列名) FROM 表名;</li>
-<li>SELECT COUNT(IFNULL(english,0)) FROM stu;</li>
+<li><code>SELECT COUNT(IFNULL(english,0)) FROM stu;</code></li>
 </ul>
 </li>
 <li>max:计算最大值</li>
@@ -607,12 +606,27 @@
 </ol>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//每页显示3条记录</span><br><span class="line">SELECT * FROM student LIMIT 0,3;//第1页</span><br><span class="line">SELECT * FROM student LIMIT 3,3;//第2页</span><br><span class="line">SELECT * FROM student LIMIT 6,3;//第3页</span><br><span class="line">```   </span><br><span class="line">   </span><br><span class="line">   3. 分页操作是一个&quot;方言&quot;，每种数据库的分页的语法都不同，limit是mysql的语法</span><br><span class="line"></span><br><span class="line">## 约束</span><br><span class="line"></span><br><span class="line">* 概念:对表中的数据进行限定,保证数据的正确性、有效性和完整性</span><br><span class="line">* 分类:</span><br><span class="line">  * 主键约束:primary key</span><br><span class="line">  * 非空约束:not null</span><br><span class="line">  * 唯一约束:unique</span><br><span class="line">  * 外键约束: foreign key</span><br><span class="line">* 非空约束:not null</span><br><span class="line">  * 创建表时添加约束:CREATE TABLE stu(name varchar(20) not null);</span><br><span class="line">  * 创建表后,添加非空约束:ALTER TABLE stu MODIFY name varchar(20) not null;</span><br><span class="line">  * 删除name的非空约束:```ALTER TABLE stu MODIFY name varchar(20);</span><br></pre></td></tr></table></figure>
-<ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//每页显示3条记录</span><br><span class="line">SELECT * FROM student LIMIT 0,3;//第1页</span><br><span class="line">SELECT * FROM student LIMIT 3,3;//第2页</span><br><span class="line">SELECT * FROM student LIMIT 6,3;//第3页</span><br></pre></td></tr></table></figure>
+<pre><code>3. 分页操作是一个&quot;方言&quot;，每种数据库的分页的语法都不同，limit是mysql的语法
+</code></pre><h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><ul>
+<li>概念:对表中的数据进行限定,保证数据的正确性、有效性和完整性</li>
+<li>分类:<ul>
+<li>主键约束:primary key</li>
+<li>非空约束:not null</li>
+<li>唯一约束:unique</li>
+<li>外键约束: foreign key</li>
+</ul>
+</li>
+<li>非空约束:not null<ul>
+<li>创建表时添加约束:<code>CREATE TABLE stu(name varchar(20) not null);</code></li>
+<li>创建表后,添加非空约束:<code>ALTER TABLE stu MODIFY name varchar(20) not null;</code></li>
+<li>删除name的非空约束:<code>ALTER TABLE stu MODIFY name varchar(20);</code></li>
+</ul>
+</li>
 <li>唯一约束:unique,值不能唯一,<strong>值为null可以重复</strong><ul>
-<li>创建表时,添加唯一约束:CREATE TABLE stu(phone_number varchar(20) unique);</li>
-<li>创建表后,添加唯一约束:ALTER TABLE stu MODIFY phone_number varchar(20) unique;</li>
-<li>删除唯一约束:ALTER TABLE stu DROP INDEX phone_number;</li>
+<li>创建表时,添加唯一约束:<code>CREATE TABLE stu(phone_number varchar(20) unique);</code></li>
+<li>创建表后,添加唯一约束:<code>ALTER TABLE stu MODIFY</code> phone_number varchar(20) unique;</li>
+<li>删除唯一约束:<code>ALTER TABLE stu DROP INDEX phone_number;</code></li>
 </ul>
 </li>
 <li>主键约束:primary key<ol>
@@ -622,14 +636,14 @@
 <li>主键就是表中记录的唯一标识</li>
 </ol>
 </li>
-<li>在创建表时,添加主键约束:CREATE TABLE stu(id int primary key);–给id添加主键约束</li>
-<li>创建完表后添加主键约束:ALTER TABLE stu MODIFY id INT primary key;</li>
-<li>删除主键约束:ALTER TABLE stu DROP PRIMARY KEY;</li>
+<li>在创建表时,添加主键约束:<code>CREATE TABLE stu(id int primary key);--给id添加主键约束</code></li>
+<li>创建完表后添加主键约束:<code>ALTER TABLE stu MODIFY id INT primary key;</code></li>
+<li>删除主键约束:<code>ALTER TABLE stu DROP PRIMARY KEY;</code></li>
 <li>自动增长:<ul>
 <li>概念:如果某一列是数值类型的，使用auto_increment可以来完成值的自动增长</li>
-<li>创建表时添加自动增长:CREATE TABLE stu(id int PRIMARY KEY AUTO_INCREMENT);</li>
-<li>创建完表时添加自动增长:ALTER TABLE stu MODIFY id int AUTO_INCREMENT;</li>
-<li>删除自动增长:ALTER TABLE stu MODIFY id INT;</li>
+<li>创建表时添加自动增长:<code>CREATE TABLE stu(id int PRIMARY KEY AUTO_INCREMENT);</code></li>
+<li>创建完表时添加自动增长:<code>ALTER TABLE stu MODIFY id int AUTO_INCREMENT;</code></li>
+<li>删除自动增长:<code>ALTER TABLE stu MODIFY id INT;</code></li>
 <li><strong>自动增长一般配合主键约束一起使用,添加主键时加上自动增长属性</strong></li>
 </ul>
 </li>
@@ -637,7 +651,7 @@
 </li>
 <li>外键约束<ul>
 <li>在创建表时，可以添加外键<ul>
-<li>语法:CREATE TABLE 表名(外键列,constraint (外键名称) foreign key 外键列名称 references 主表名称(主表列名称));</li>
+<li>语法:<code>CREATE TABLE 表名(外键列,constraint (外键名称) foreign key 外键列名称 references 主表名称(主表列名称));</code></li>
 </ul>
 </li>
 </ul>
@@ -667,8 +681,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/Java笔记/注解/" rel="next" title="注解">
-                <i class="fa fa-chevron-left"></i> 注解
+              <a href="/uncategorized/线性表/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -752,7 +766,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -798,7 +812,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL"><span class="nav-number">1.</span> <span class="nav-text">MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库的概念"><span class="nav-number">1.1.</span> <span class="nav-text">数据库的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL"><span class="nav-number">1.2.</span> <span class="nav-text">SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL通用语法"><span class="nav-number">1.2.1.</span> <span class="nav-text">SQL通用语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL分类"><span class="nav-number">1.2.2.</span> <span class="nav-text">SQL分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DDL-操作数据库、表"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">DDL:操作数据库、表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DML-增删改表中数据"><span class="nav-number">1.2.3.</span> <span class="nav-text">DML:增删改表中数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DQL-查询语句"><span class="nav-number">1.2.4.</span> <span class="nav-text">DQL:查询语句</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL"><span class="nav-number">1.</span> <span class="nav-text">MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库的概念"><span class="nav-number">1.1.</span> <span class="nav-text">数据库的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL"><span class="nav-number">1.2.</span> <span class="nav-text">SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL通用语法"><span class="nav-number">1.2.1.</span> <span class="nav-text">SQL通用语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL分类"><span class="nav-number">1.2.2.</span> <span class="nav-text">SQL分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DDL-操作数据库、表"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">DDL:操作数据库、表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DML-增删改表中数据"><span class="nav-number">1.2.3.</span> <span class="nav-text">DML:增删改表中数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DQL-查询语句"><span class="nav-number">1.2.4.</span> <span class="nav-text">DQL:查询语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#约束"><span class="nav-number">1.3.</span> <span class="nav-text">约束</span></a></li></ol></li></ol></div>
             
 
           </div>
