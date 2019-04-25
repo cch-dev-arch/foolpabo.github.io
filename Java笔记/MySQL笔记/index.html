@@ -86,7 +86,7 @@
 <meta property="og:site_name" content="Pabo">
 <meta property="og:description" content="MySQL数据库的概念 数据库,DataBase,简称:DB 什么是数据库? Structured Query Language:结构化查询语言.定义了操作所有关系型数据库的规则。每种数据库操作的方式存在不一样的地方，称为“方言”. 用于存储和管理数据的仓库   数据库的特点: 持久化存储数据。数据库就是一个文件系统 方便存储和管理数据 使用了统一的方式操作数据库–SQL   常见的数据库软件:">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-04-25T02:01:09.699Z">
+<meta property="og:updated_time" content="2019-04-25T02:22:52.500Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL笔记">
 <meta name="twitter:description" content="MySQL数据库的概念 数据库,DataBase,简称:DB 什么是数据库? Structured Query Language:结构化查询语言.定义了操作所有关系型数据库的规则。每种数据库操作的方式存在不一样的地方，称为“方言”. 用于存储和管理数据的仓库   数据库的特点: 持久化存储数据。数据库就是一个文件系统 方便存储和管理数据 使用了统一的方式操作数据库–SQL   常见的数据库软件:">
@@ -402,17 +402,27 @@
 <li><p>R(Retrieve):查询</p>
 </li>
 <li><ul>
-<li>查询所有数据库的名称: <figure class="highlight plain"><figcaption><span>DATABASES;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* * 查询某个数据库的字符集:查看某个数据的创建语句 ```SHOW　CREATE DATABASE mysql # use character utf-8</span><br></pre></td></tr></table></figure></li>
+<li>查询所有数据库的名称:SHOW DATABASES;</li>
 </ul>
-</li>
-<li><p>U(Update):修改</p>
 </li>
 <li><ul>
-<li>修改数据库的字符集:<figure class="highlight plain"><figcaption><span>DATABASE db1 CHARACTER SET UTF8;//不能使用utf-8,会报错，使用utf8```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">* D(Delete):删除</span><br><span class="line">* * 删除数据库:</span><br><span class="line"></span><br><span class="line">```mysql</span><br><span class="line">DROP database 数据库名称;</span><br><span class="line">//判断数据库存在，存在再删除</span><br><span class="line">drop database if exists 数据库名称;</span><br></pre></td></tr></table></figure></li>
+<li>查询某个数据库的字符集:查看某个数据的创建语句 SHOW　CREATE DATABASE mysql # use character utf-8</li>
 </ul>
 </li>
-<li><p>使用数据库</p>
+<li>U(Update):修改</li>
+<li><ul>
+<li>修改数据库的字符集:ALTER DATABASE db1 CHARACTER SET UTF8;//不能使用utf-8,会报错，使用utf8</li>
+</ul>
 </li>
+<li>D(Delete):删除</li>
+<li><ul>
+<li>删除数据库:</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DROP database 数据库名称;</span><br><span class="line">//判断数据库存在，存在再删除</span><br><span class="line">drop database if exists 数据库名称;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用数据库</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//查询当前正在使用的数据库名称</span><br><span class="line">SELECT database();</span><br><span class="line">//使用数据库</span><br><span class="line">use 数据库名称</span><br></pre></td></tr></table></figure>
 </li>
@@ -425,10 +435,9 @@
 </li>
 <li><p>数据类型:</p>
 <ol>
-<li><p>int:整数类型,<figure class="highlight plain"><figcaption><span>int,```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2. double:小数类型:```score double(5,2);//一共有5位，小数点后面保留两位小数，最大值999.99</span><br></pre></td></tr></table></figure></p>
-</li>
-<li><p>date:日期，只包含年月日yyyy-MM-dd</p>
-</li>
+<li>int:整数类型,age int</li>
+<li>double:小数类型:score double(5,2);//一共有5位，小数点后面保留两位小数，最大值999.99</li>
+<li>date:日期，只包含年月日yyyy-MM-dd</li>
 <li>datetime:日期，包含年月日时分秒 yyyy-MM-dd HH:mm:ss</li>
 <li>timestamp:时间戳,包含年月日时分秒 yyyy-MM-dd HH:mm:ss.<strong>如果将来不给这个字段赋值，或赋值为null,则默认使用当前的系统时间，来自动赋值</strong></li>
 <li>varchar:字符串,<figure class="highlight plain"><figcaption><span>varchar(20)//姓名，最大20个字符</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2. R(Rwtrieve)查询:</span><br><span class="line"></span><br><span class="line">```mysql</span><br><span class="line">show tables;//查询某个数据库中所有的表名称</span><br><span class="line">desc 表名;//查询表结构</span><br></pre></td></tr></table></figure></li>
@@ -453,29 +462,55 @@
 </li>
 </ol>
 <h3 id="DML-增删改表中数据"><a href="#DML-增删改表中数据" class="headerlink" title="DML:增删改表中数据"></a>DML:增删改表中数据</h3><ol>
-<li><p>添加数据:</p>
-<ul>
-<li><p>语法:<figure class="highlight plain"><figcaption><span>into 表名(列名1,列名2,...,列名n) values(值1,值2,...,值n);```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* 注意:</span><br><span class="line">     * 列名和值要一一对应</span><br><span class="line">     * 如果表名后，不定义列名，则默认给所有列添加值:```insert into 表名 values(值1,值2,...,值n);</span><br></pre></td></tr></table></figure></p>
-<ul>
+<li>添加数据:<ul>
+<li>语法:insert into 表名(列名1,列名2,…,列名n) values(值1,值2,…,值n);</li>
+<li>注意:<ul>
+<li>列名和值要一一对应</li>
+<li>如果表名后，不定义列名，则默认给所有列添加值:insert into 表名 values(值1,值2,…,值n);</li>
 <li>除了数字类型，其他类型需要使用引号(单双都可以,ps:<strong>双引号不是所有数据库都支持</strong>)包裹起来.</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>删除数据:</p>
-<ul>
-<li><p>语法:</p>
-<ul>
-<li><figure class="highlight plain"><figcaption><span>from 表名 [where 条件]```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">     * 注意:</span><br><span class="line">     *  1. 如果不加条件，会删除表中所有记录</span><br><span class="line">     *  2. 如果要删除所有记录</span><br><span class="line">            1. delete from 表名;--不推荐使用。有多少条记录就会执行多少次删除操作，影响性能</span><br><span class="line">            2. TRUNCATE TABLE 表名;--推荐使用.先删除表，然后再创建一张一样的表</span><br><span class="line">3. 修改数据:</span><br><span class="line">    * 语法: update 表名 set 列名1 = 值1,列名2 = 值2,...[where 条件];</span><br><span class="line"></span><br><span class="line">### DQL:查询语句</span><br><span class="line"></span><br><span class="line">* select * from 表名;</span><br><span class="line">    1. 语法:</span><br><span class="line">    </span><br><span class="line">    ```mysql</span><br><span class="line">    select</span><br><span class="line">        字段列表</span><br><span class="line">    from</span><br><span class="line">        表名列表</span><br><span class="line">    group by</span><br><span class="line">        分组字段</span><br><span class="line">    having</span><br><span class="line">        分组之后的条件</span><br><span class="line">    order by</span><br><span class="line">        排序</span><br><span class="line">    limit</span><br><span class="line">        分页限定</span><br></pre></td></tr></table></figure>
+<li>删除数据:<ul>
+<li>语法:<ul>
+<li>delete from 表名 [where 条件]</li>
+<li>注意:</li>
+<li><ol>
+<li>如果不加条件，会删除表中所有记录</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>如果要删除所有记录<ol>
+<li>delete from 表名;–不推荐使用。有多少条记录就会执行多少次删除操作，影响性能</li>
+<li>TRUNCATE TABLE 表名;–推荐使用.先删除表，然后再创建一张一样的表</li>
+</ol>
+</li>
+</ol>
 </li>
 </ul>
-<ol start="2">
+</li>
+</ul>
+</li>
+<li>修改数据:<ul>
+<li>语法: update 表名 set 列名1 = 值1,列名2 = 值2,…[where 条件];</li>
+</ul>
+</li>
+</ol>
+<h3 id="DQL-查询语句"><a href="#DQL-查询语句" class="headerlink" title="DQL:查询语句"></a>DQL:查询语句</h3><ul>
+<li><p>select * from 表名;</p>
+<ol>
+<li><p>语法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">select</span><br><span class="line">    字段列表</span><br><span class="line">from</span><br><span class="line">    表名列表</span><br><span class="line">group by</span><br><span class="line">    分组字段</span><br><span class="line">having</span><br><span class="line">    分组之后的条件</span><br><span class="line">order by</span><br><span class="line">    排序</span><br><span class="line">limit</span><br><span class="line">    分页限定</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>基础查询</p>
 <ol>
-<li><p>多个字段的查询:<figure class="highlight plain"><figcaption><span>字段名1,字段名2...from 表名;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">    * 注意:如果查询所有字段，则可以使用*来替代字段列表</span><br><span class="line">2. 去除重复:```distinct</span><br></pre></td></tr></table></figure></p>
+<li>多个字段的查询:select 字段名1,字段名2…from 表名;<ul>
+<li>注意:如果查询所有字段，则可以使用*来替代字段列表</li>
+</ul>
 </li>
-<li><p>计算列</p>
-<ul>
+<li>去除重复:distinct</li>
+<li>计算列<ul>
 <li>一般可以使用四则运算计算一些列的值(一般只会进行数值型的计算)</li>
 <li>ifnull(表达式1,表达式2):null参与的计算，计算结果都为null<ul>
 <li>表达式1:哪个字段需要判断是否为null</li>
@@ -499,7 +534,14 @@
 </blockquote>
 </li>
 <li>BETWEEN 值1 AND 值2(包含值1和值2,值1&lt;查询的属性&lt;值2),AND,OR,IN(值1，值2，…值n)</li>
-<li>LIKE:模糊查询.<figure class="highlight plain"><figcaption><span>* FROM student where name</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">                * 占位符:</span><br><span class="line">                  * _:单个任意字符</span><br><span class="line">                  * %:多个任意字符</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">1. 排序查询</span><br><span class="line">    * 语法: order by 子句</span><br><span class="line">        * order by 排序字段1 排序方式1,排序字段2 排序方式2...</span><br><span class="line">        * 排序方式:</span><br><span class="line">            * ASC:升序,默认的</span><br><span class="line">            * DESC:降序</span><br><span class="line">        * 注意:</span><br><span class="line">            * 如果有多个排序条件,则当前面的条件值一样时，才会判断第二条件</span><br><span class="line">2. 聚合函数:将一列数据作为一个整体，进行纵向的计算</span><br><span class="line">    1. count:计算个数</span><br><span class="line">        * SELECT COUNT(列名) FROM 表名;</span><br><span class="line">        * SELECT COUNT(IFNULL(english,0)) FROM stu;</span><br><span class="line">    2. max:计算最大值</span><br><span class="line">    3. min:计算最小值</span><br><span class="line">    4. sum:求和</span><br><span class="line">    5. avg:计算平均值</span><br><span class="line">    * 注意:聚合函数的计算，会排除null值</span><br><span class="line">        * 选择不包含非空的列进行计算</span><br><span class="line">        * IFNULL函数</span><br><span class="line">3. 分组查询</span><br><span class="line">    1. 语法: group by 分组字段;</span><br><span class="line">    2. 注意:</span><br><span class="line">        1. 分组之后查询的字段:分组字段、聚合函数</span><br><span class="line">        2. where和having的区别?</span><br><span class="line">            1. where在分组之前进行限定，如果不满足条件，则不参与分组。having在分组之后进行限定，如果不满足结果,则不会被查询出来</span><br><span class="line">            2. where后不可以跟聚合函数，having可以进行聚合函数的判断</span><br><span class="line"></span><br><span class="line">```mysql</span><br><span class="line">//按照性别分组，分别查询男、女同学的平均分，人数，要求:分数低于70分的人，不参与分组,分组之后，人数要大于2</span><br><span class="line">SELECT sex,AVG(math),count(id) FROM student WHERE math &gt;70 GROUP BY sex HAVING COUNT(id) &gt; 2;</span><br></pre></td></tr></table></figure></li>
+<li>LIKE:模糊查询.SELECT * FROM student where name= ‘马%’<ul>
+<li>占位符:<ul>
+<li>_:单个任意字符</li>
+<li>%:多个任意字符</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -507,39 +549,98 @@
 </ol>
 </li>
 </ul>
-</li>
-<li><p>分页查询</p>
 <ol>
+<li>排序查询<ul>
+<li>语法: order by 子句<ul>
+<li>order by 排序字段1 排序方式1,排序字段2 排序方式2…</li>
+<li>排序方式:<ul>
+<li>ASC:升序,默认的</li>
+<li>DESC:降序</li>
+</ul>
+</li>
+<li>注意:<ul>
+<li>如果有多个排序条件,则当前面的条件值一样时，才会判断第二条件</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>聚合函数:将一列数据作为一个整体，进行纵向的计算<ol>
+<li>count:计算个数<ul>
+<li>SELECT COUNT(列名) FROM 表名;</li>
+<li>SELECT COUNT(IFNULL(english,0)) FROM stu;</li>
+</ul>
+</li>
+<li>max:计算最大值</li>
+<li>min:计算最小值</li>
+<li>sum:求和</li>
+<li>avg:计算平均值</li>
+</ol>
+<ul>
+<li>注意:聚合函数的计算，会排除null值<ul>
+<li>选择不包含非空的列进行计算</li>
+<li>IFNULL函数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>分组查询<ol>
+<li>语法: group by 分组字段;</li>
+<li>注意:<ol>
+<li>分组之后查询的字段:分组字段、聚合函数</li>
+<li>where和having的区别?<ol>
+<li>where在分组之前进行限定，如果不满足条件，则不参与分组。having在分组之后进行限定，如果不满足结果,则不会被查询出来</li>
+<li>where后不可以跟聚合函数，having可以进行聚合函数的判断</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//按照性别分组，分别查询男、女同学的平均分，人数，要求:分数低于70分的人，不参与分组,分组之后，人数要大于2</span><br><span class="line">SELECT sex,AVG(math),count(id) FROM student WHERE math &gt;70 GROUP BY sex HAVING COUNT(id) &gt; 2;</span><br></pre></td></tr></table></figure>
+<ol start="4">
+<li>分页查询<ol>
 <li>语法:LIMIT 开始的索引,每页查询的条数;</li>
 <li>公式:开始的索引=(当前的页码-1)*每页显示的条数</li>
 </ol>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//每页显示3条记录</span><br><span class="line">SELECT * FROM student LIMIT 0,3;//第1页</span><br><span class="line">SELECT * FROM student LIMIT 3,3;//第2页</span><br><span class="line">SELECT * FROM student LIMIT 6,3;//第3页</span><br><span class="line">```   </span><br><span class="line">   </span><br><span class="line">   3. 分页操作是一个&quot;方言&quot;，每种数据库的分页的语法都不同，limit是mysql的语法</span><br><span class="line"></span><br><span class="line">## 约束</span><br><span class="line"></span><br><span class="line">* 概念:对表中的数据进行限定,保证数据的正确性、有效性和完整性</span><br><span class="line">* 分类:</span><br><span class="line">  * 主键约束:primary key</span><br><span class="line">  * 非空约束:not null</span><br><span class="line">  * 唯一约束:unique</span><br><span class="line">  * 外键约束: foreign key</span><br><span class="line">* 非空约束:not null</span><br><span class="line">  * 创建表时添加约束:```CREATE TABLE stu(name varchar(20) not null);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//每页显示3条记录</span><br><span class="line">SELECT * FROM student LIMIT 0,3;//第1页</span><br><span class="line">SELECT * FROM student LIMIT 3,3;//第2页</span><br><span class="line">SELECT * FROM student LIMIT 6,3;//第3页</span><br><span class="line">```   </span><br><span class="line">   </span><br><span class="line">   3. 分页操作是一个&quot;方言&quot;，每种数据库的分页的语法都不同，limit是mysql的语法</span><br><span class="line"></span><br><span class="line">## 约束</span><br><span class="line"></span><br><span class="line">* 概念:对表中的数据进行限定,保证数据的正确性、有效性和完整性</span><br><span class="line">* 分类:</span><br><span class="line">  * 主键约束:primary key</span><br><span class="line">  * 非空约束:not null</span><br><span class="line">  * 唯一约束:unique</span><br><span class="line">  * 外键约束: foreign key</span><br><span class="line">* 非空约束:not null</span><br><span class="line">  * 创建表时添加约束:CREATE TABLE stu(name varchar(20) not null);</span><br><span class="line">  * 创建表后,添加非空约束:ALTER TABLE stu MODIFY name varchar(20) not null;</span><br><span class="line">  * 删除name的非空约束:```ALTER TABLE stu MODIFY name varchar(20);</span><br></pre></td></tr></table></figure>
 <ul>
-<li>创建表后,添加非空约束:<figure class="highlight plain"><figcaption><span>TABLE stu MODIFY name varchar(20) not null;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 删除name的非空约束:```ALTER TABLE stu MODIFY name varchar(20);</span><br></pre></td></tr></table></figure></li>
+<li>唯一约束:unique,值不能唯一,<strong>值为null可以重复</strong><ul>
+<li>创建表时,添加唯一约束:CREATE TABLE stu(phone_number varchar(20) unique);</li>
+<li>创建表后,添加唯一约束:ALTER TABLE stu MODIFY phone_number varchar(20) unique;</li>
+<li>删除唯一约束:ALTER TABLE stu DROP INDEX phone_number;</li>
 </ul>
-<ul>
-<li><p>唯一约束:unique,值不能唯一,<strong>值为null可以重复</strong></p>
-<ul>
-<li><p>创建表时,添加唯一约束:<figure class="highlight plain"><figcaption><span>TABLE stu(phone_number varchar(20) unique);```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 创建表后,添加唯一约束:```ALTER TABLE stu MODIFY phone_number varchar(20) unique;</span><br></pre></td></tr></table></figure></p>
 </li>
-<li><p>删除唯一约束:<figure class="highlight plain"><figcaption><span>TABLE stu DROP INDEX phone_number```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">* 主键约束:primary key</span><br><span class="line">  1. 注意:</span><br><span class="line">     1. 含义:非空且唯一</span><br><span class="line">     2. 一张表只能有一个字段为主键</span><br><span class="line">     3. 主键就是表中记录的唯一标识</span><br><span class="line">  2. 在创建表时,添加主键约束:```CREATE TABLE stu(id int primary key);--给id添加主键约束</span><br></pre></td></tr></table></figure></p>
+<li>主键约束:primary key<ol>
+<li>注意:<ol>
+<li>含义:非空且唯一</li>
+<li>一张表只能有一个字段为主键</li>
+<li>主键就是表中记录的唯一标识</li>
+</ol>
 </li>
-</ul>
-<ol start="3">
-<li><p>创建完表后添加主键约束:<figure class="highlight plain"><figcaption><span>TABLE stu MODIFY id INT primary key;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">4. 删除主键约束:```ALTER TABLE stu DROP PRIMARY KEY;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li><p>自动增长:</p>
-<ul>
+<li>在创建表时,添加主键约束:CREATE TABLE stu(id int primary key);–给id添加主键约束</li>
+<li>创建完表后添加主键约束:ALTER TABLE stu MODIFY id INT primary key;</li>
+<li>删除主键约束:ALTER TABLE stu DROP PRIMARY KEY;</li>
+<li>自动增长:<ul>
 <li>概念:如果某一列是数值类型的，使用auto_increment可以来完成值的自动增长</li>
-<li><p>创建表时添加自动增长:<figure class="highlight plain"><figcaption><span>TABLE stu(id int PRIMARY KEY AUTO_INCREMENT);```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">* 创建完表时添加自动增长:```ALTER TABLE stu MODIFY id int AUTO_INCREMENT;</span><br></pre></td></tr></table></figure></p>
-</li>
-<li><p>删除自动增长:<figure class="highlight plain"><figcaption><span>TABLE stu MODIFY id INT;```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">     * **自动增长一般配合主键约束一起使用,添加主键时加上自动增长属性**</span><br><span class="line">* 外键约束</span><br><span class="line">  * 在创建表时，可以添加外键</span><br><span class="line">    * 语法:```CREATE TABLE 表名(外键列,constraint (外键名称) foreign key 外键列名称 references 主表名称(主表列名称));</span><br></pre></td></tr></table></figure></p>
-</li>
+<li>创建表时添加自动增长:CREATE TABLE stu(id int PRIMARY KEY AUTO_INCREMENT);</li>
+<li>创建完表时添加自动增长:ALTER TABLE stu MODIFY id int AUTO_INCREMENT;</li>
+<li>删除自动增长:ALTER TABLE stu MODIFY id INT;</li>
+<li><strong>自动增长一般配合主键约束一起使用,添加主键时加上自动增长属性</strong></li>
 </ul>
 </li>
 </ol>
+</li>
+<li>外键约束<ul>
+<li>在创建表时，可以添加外键<ul>
+<li>语法:CREATE TABLE 表名(外键列,constraint (外键名称) foreign key 外键列名称 references 主表名称(主表列名称));</li>
+</ul>
+</li>
+</ul>
 </li>
 </ul>
 
@@ -697,7 +798,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL"><span class="nav-number">1.</span> <span class="nav-text">MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库的概念"><span class="nav-number">1.1.</span> <span class="nav-text">数据库的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL"><span class="nav-number">1.2.</span> <span class="nav-text">SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL通用语法"><span class="nav-number">1.2.1.</span> <span class="nav-text">SQL通用语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL分类"><span class="nav-number">1.2.2.</span> <span class="nav-text">SQL分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DDL-操作数据库、表"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">DDL:操作数据库、表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DML-增删改表中数据"><span class="nav-number">1.2.3.</span> <span class="nav-text">DML:增删改表中数据</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#MySQL"><span class="nav-number">1.</span> <span class="nav-text">MySQL</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库的概念"><span class="nav-number">1.1.</span> <span class="nav-text">数据库的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL"><span class="nav-number">1.2.</span> <span class="nav-text">SQL</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL通用语法"><span class="nav-number">1.2.1.</span> <span class="nav-text">SQL通用语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SQL分类"><span class="nav-number">1.2.2.</span> <span class="nav-text">SQL分类</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DDL-操作数据库、表"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">DDL:操作数据库、表</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DML-增删改表中数据"><span class="nav-number">1.2.3.</span> <span class="nav-text">DML:增删改表中数据</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DQL-查询语句"><span class="nav-number">1.2.4.</span> <span class="nav-text">DQL:查询语句</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
